@@ -1,4 +1,7 @@
-# default
+# Loot Tavern Craft Prices
+
+A crafting price calculator for the Loot Tavern crafting system from Heliana's Guide to Monster Hunting. see https://loottavern.com/
+This is a fan made project for personal, non-comertial use with the kind permission from Loot Tavern.
 
 ## Project setup
 

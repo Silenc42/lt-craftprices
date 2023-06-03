@@ -14,7 +14,7 @@
           </v-col>
         </v-row>
         <v-row>
-          <HelloWorld/>
+          <Manufacture/>
         </v-row>
       </v-container>
     </v-main>
@@ -22,5 +22,5 @@
 </template>
 
 <script setup lang="ts">
-import HelloWorld from '@/components/HelloWorld.vue'
+import Manufacture from "@/components/Manufacture.vue";
 </script>

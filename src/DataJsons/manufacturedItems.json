@@ -4,82 +4,137 @@
       "categoryName": "Armour",
       "items": [
         {
-          "tool": ["leather", "weaver"],
-          "itemName": "Padded",
-          "dc": "13",
-          "timeInHours": 8
-        },
-        {
-          "tool": ["leather"],
-          "itemName": "Hide",
-          "dc": "13",
-          "timeInHours": 8
-        },
-        {
-          "tool": ["carp","smith","wood"],
+          "tool": [
+            "carp",
+            "smith",
+            "wood"
+          ],
           "itemName": "Shield",
           "dc": "13",
-          "timeInHours": 8
+          "timeInHours": 8,
+          "materialCost": 3,
+          "itemValue": 10
         },
         {
-          "tool": ["leather"],
+          "tool": [
+            "leather",
+            "weaver"
+          ],
+          "itemName": "Padded",
+          "dc": "13",
+          "timeInHours": 8,
+          "materialCost": 2,
+          "itemValue": 5
+        },
+        {
+          "tool": [
+            "leather"
+          ],
           "itemName": "Leather",
           "dc": "15",
-          "timeInHours": 16
+          "timeInHours": 16,
+          "materialCost": 3,
+          "itemValue": 10
         },
         {
-          "tool": ["smith"],
-          "itemName": "Chain shirt",
-          "dc": "15",
-          "timeInHours": 16
-        },
-        {
-          "tool": ["smith"],
-          "itemName": "Ring mail",
-          "dc": "15",
-          "timeInHours": 16
-        },
-        {
-          "tool": ["smith"],
-          "itemName": "Chain mail",
-          "dc": "16",
-          "timeInHours": 32
-        },
-        {
-          "tool": ["leather"],
+          "tool": [
+            "leather"
+          ],
           "itemName": "Studded leather",
           "dc": "17",
-          "timeInHours": 24
+          "timeInHours": 24,
+          "materialCost": 15,
+          "itemValue": 45
         },
         {
-          "tool": ["smith"],
+          "tool": [
+            "leather"
+          ],
+          "itemName": "Hide",
+          "dc": "13",
+          "timeInHours": 8,
+          "materialCost": 3,
+          "itemValue": 10
+        },
+        {
+          "tool": [
+            "smith"
+          ],
+          "itemName": "Chain shirt",
+          "dc": "15",
+          "timeInHours": 16,
+          "materialCost": 17,
+          "itemValue": 50
+        },
+        {
+          "tool": [
+            "smith"
+          ],
           "itemName": "Scale mail",
           "dc": "17",
-          "timeInHours": 24
+          "timeInHours": 24,
+          "materialCost": 17,
+          "itemValue": 50
         },
         {
-          "tool": ["smith"],
+          "tool": [
+            "smith"
+          ],
           "itemName": "Breastplate",
           "dc": "18",
-          "timeInHours": 40
+          "timeInHours": 40,
+          "materialCost": 130,
+          "itemValue": 400
         },
         {
-          "tool": ["smith"],
-          "itemName": "Splint",
-          "dc": "18",
-          "timeInHours": 40
-        },
-        {
-          "tool": ["smith"],
+          "tool": [
+            "smith"
+          ],
           "itemName": "Half plate",
           "dc": "19",
-          "timeInHours": 80
+          "timeInHours": 80,
+          "materialCost": 250,
+          "itemValue": 750
         },
         {
-          "tool": ["smith"],
+          "tool": [
+            "smith"
+          ],
+          "itemName": "Ring mail",
+          "dc": "15",
+          "timeInHours": 16,
+          "materialCost": 10,
+          "itemValue": 30
+        },
+        {
+          "tool": [
+            "smith"
+          ],
+          "itemName": "Chain mail",
+          "dc": "16",
+          "timeInHours": 32,
+          "materialCost": 25,
+          "itemValue": 75
+        },
+        {
+          "tool": [
+            "smith"
+          ],
+          "itemName": "Splint",
+          "dc": "18",
+          "timeInHours": 40,
+          "materialCost": 70,
+          "itemValue": 200
+        },
+        {
+          "tool": [
+            "smith"
+          ],
           "itemName": "Plate",
           "dc": "20",
-          "timeInHours": 200
+          "timeInHours": 200,
+          "materialCost": 500,
+          "itemValue": 1500
         }
       ]
     },
@@ -87,22 +142,35 @@
       "categoryName": "Simple Weapon",
       "items": [
         {
-          "tool": ["smith"],
+          "tool": [
+            "smith"
+          ],
           "itemName": "Claw",
           "dc": "14",
-          "timeInHours": 3
+          "timeInHours": 3,
+          "materialCost": 2,
+          "itemValue": 5
         },
         {
-          "tool": ["carp","wood"],
+          "tool": [
+            "carp",
+            "wood"
+          ],
           "itemName": "Club",
           "dc": "14",
-          "timeInHours": "0.25"
+          "timeInHours": 0.25,
+          "materialCost": 0.03,
+          "itemValue": 0.1
         },
         {
-          "tool": ["smith"],
+          "tool": [
+            "smith"
+          ],
           "itemName": "Dagger",
           "dc": "14",
-          "timeInHours": 1
+          "timeInHours": 1,
+          "materialCost": 2,
+          "itemValue": 0.7
         }
       ]
     },
@@ -110,22 +178,36 @@
       "categoryName": "Martial Weapon",
       "items": [
         {
-          "tool": ["smith"],
+          "tool": [
+            "smith"
+          ],
           "itemName": "Battleaxe",
           "dc": "17",
-          "timeInHours": 6
+          "timeInHours": 6,
+          "materialCost": 3,
+          "itemValue": 10
         },
         {
-          "tool": ["smith"],
+          "tool": [
+            "smith"
+          ],
           "itemName": "Flail",
           "dc": "17",
-          "timeInHours": 6
+          "timeInHours": 6,
+          "materialCost": 3,
+          "itemValue": 10
         },
         {
-          "tool": ["carp","smith","wood"],
+          "tool": [
+            "carp",
+            "smith",
+            "wood"
+          ],
           "itemName": "Glaive",
           "dc": "17",
-          "timeInHours": 12
+          "timeInHours": 12,
+          "materialCost": 7,
+          "itemValue": 20
         }
       ]
     },
@@ -133,22 +215,34 @@
       "categoryName": "Magitech Firearm",
       "items": [
         {
-          "tool": ["tinker"],
+          "tool": [
+            "tinker"
+          ],
           "itemName": "Blunderbuss",
           "dc": "19",
-          "timeInHours": 36
+          "timeInHours": 36,
+          "materialCost": 50,
+          "itemValue": 150
         },
         {
-          "tool": ["tinker"],
+          "tool": [
+            "tinker"
+          ],
           "itemName": "Musket",
           "dc": "19",
-          "timeInHours": 36
+          "timeInHours": 36,
+          "materialCost": 30,
+          "itemValue": 100
         },
         {
-          "tool": ["tinker"],
-          "itemName": "Pistol*",
+          "tool": [
+            "tinker"
+          ],
+          "itemName": "Pistol",
           "dc": "19",
-          "timeInHours": 48
+          "timeInHours": 48,
+          "materialCost": 70,
+          "itemValue": 200
         }
       ]
     },
@@ -156,10 +250,15 @@
       "categoryName": "Other Item",
       "items": [
         {
-          "tool": ["carp","wood"],
-          "itemName": "Ammunition (arrows, bolts, and blowgun needles) (x20)",
+          "tool": [
+            "carp",
+            "wood"
+          ],
+          "itemName": "Arrows (x20)",
           "dc": "13",
-          "timeInHours": 1
+          "timeInHours": 1,
+          "materialCost": 1,
+          "itemValue": 0.3
         }
       ]
     }

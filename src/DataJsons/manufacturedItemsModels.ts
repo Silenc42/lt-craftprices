@@ -1,13 +1,13 @@
 export interface manufacturableItemCategory {
   categoryName: string;
-  items: manufacturableItems[];
+  items: manufacturableItem[];
 }
 
-export interface manufacturableItems {
-  tool: string[]; //TODO: change to tool enum?
+export interface manufacturableItem {
+  tools: string[];
   itemName: string;
   dc: string;
   timeInHours: number;
-  "materialCost": number;
-  "itemValue": number;
+  materialCost: number;
+  itemValue: number;
 }

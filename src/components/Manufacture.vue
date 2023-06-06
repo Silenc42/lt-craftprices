@@ -20,7 +20,19 @@
           v-model="selectedItem"
           label="Select Item"
           :items="itemsInSelectedCategory"
+          item-title="itemName"
+          return-object
         />
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col>
+        <ManufactureItemDetails :item="selectedItem"></ManufactureItemDetails>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col>
+<!--        <HiredCrafterPrices :item="selectedItem" type="manufacturer"></HiredCrafterPrices>-->
       </v-col>
     </v-row>
   </v-container>
@@ -29,28 +41,28 @@
 </template>
 
 <script setup lang="ts">
-import {computed, ref} from "vue";
+import {computed, ComputedRef, Ref, ref} from "vue";
 
-import * as tools from '../DataJsons/tools.json'
 import * as manufacturableItems from '../DataJsons/manufacturedItems.json'
-import {manufacturableItemCategory} from "@/DataJsons/manufacturedItemsModels";
+import {manufacturableItem, manufacturableItemCategory} from "@/DataJsons/manufacturedItemsModels";
+import ManufactureItemDetails from "@/components/ManufactureItemDetails.vue";
+// import HiredCrafterPrices from "@/components/HiredCrafterPrices.vue";
 
 const manufactureCategories: manufacturableItemCategory[] = manufacturableItems.manufactureCategories;
 
-const itemCategories = computed(_ => {
+const itemCategories: ComputedRef<string[]> = computed(_ => {
   return manufactureCategories.map((category) => category.categoryName);
 })
 
-
-const selectedCategory = ref();
-const selectedItem = ref();
+const selectedCategory: Ref<string | null> = ref(null);
+const selectedItem: Ref<manufacturableItem | null> = ref(null);
 
 function resetItemSelection(): void {
   selectedItem.value = null;
 }
 
-const itemsInSelectedCategory = computed(_ => {
-  return manufactureCategories.find(category => category.categoryName === selectedCategory.value)?.items.map(item => item.itemName) ?? [];
+const itemsInSelectedCategory: ComputedRef<manufacturableItem[]> = computed(_ => {
+  return manufactureCategories.find(category => category.categoryName === selectedCategory.value)?.items ?? [];
 });
 </script>
 

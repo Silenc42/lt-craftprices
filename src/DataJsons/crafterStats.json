@@ -1,0 +1,71 @@
+{
+  "manufacturersStats": [
+    {
+      "rank": "journeyman",
+      "speedFactor": 1,
+      "modifier": 6,
+      "hourlyRate": 1,
+      "overtimeRate": 2
+    },
+    {
+      "rank": "expert",
+      "speedFactor": 2,
+      "modifier": 8,
+      "hourlyRate": 4,
+      "overtimeRate": 8
+    },
+    {
+      "rank": "master",
+      "speedFactor": 3,
+      "modifier": 11,
+      "hourlyRate": 9,
+      "overtimeRate": 18
+    }
+  ],
+  "enchantersStats": [
+    {
+      "rank": "journeyman",
+      "speedFactor": 1,
+      "modifier": 6,
+      "hourlyRate": 20,
+      "overtimeRate": 40
+    },
+    {
+      "rank": "expert",
+      "speedFactor": 2,
+      "modifier": 8,
+      "hourlyRate": 80,
+      "overtimeRate": 160
+    },
+    {
+      "rank": "master",
+      "speedFactor": 3,
+      "modifier": 11,
+      "hourlyRate": 180,
+      "overtimeRate": 360
+    }
+  ],
+  "forgersStats": [
+    {
+      "rank": "journeyman",
+      "speedFactor": 1,
+      "modifier": 6,
+      "hourlyRate": 25,
+      "overtimeRate": 50
+    },
+    {
+      "rank": "expert",
+      "speedFactor": 2,
+      "modifier": 8,
+      "hourlyRate": 100,
+      "overtimeRate": 200
+    },
+    {
+      "rank": "master",
+      "speedFactor": 3,
+      "modifier": 11,
+      "hourlyRate": 200,
+      "overtimeRate": 400
+    }
+  ]
+}

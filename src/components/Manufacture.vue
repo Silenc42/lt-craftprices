@@ -25,15 +25,13 @@
         />
       </v-col>
     </v-row>
-    <v-row>
-      <v-col>
-        <ManufactureItemDetails :item="selectedItem"></ManufactureItemDetails>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-<!--        <HiredCrafterPrices :item="selectedItem" type="manufacturer"></HiredCrafterPrices>-->
-      </v-col>
+    <v-row v-if="selectedItem != null">
+        <v-col>
+          <ManufactureItemDetails :item="selectedItem"></ManufactureItemDetails>
+        </v-col>
+        <v-col>
+          <HiredCrafterPrices :item="selectedItem" type="manufacturer"></HiredCrafterPrices>
+        </v-col>
     </v-row>
   </v-container>
 
@@ -46,7 +44,7 @@ import {computed, ComputedRef, Ref, ref} from "vue";
 import * as manufacturableItems from '../DataJsons/manufacturedItems.json'
 import {manufacturableItem, manufacturableItemCategory} from "@/DataJsons/manufacturedItemsModels";
 import ManufactureItemDetails from "@/components/ManufactureItemDetails.vue";
-// import HiredCrafterPrices from "@/components/HiredCrafterPrices.vue";
+import HiredCrafterPrices from "@/components/HiredCrafterPrices.vue";
 
 const manufactureCategories: manufacturableItemCategory[] = manufacturableItems.manufactureCategories;
 

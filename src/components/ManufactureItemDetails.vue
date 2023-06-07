@@ -36,7 +36,11 @@ const toolsDisplay: ComputedRef<string> = computed(_ => {
 });
 
 function toolChecksFromId(toolId: string): string {
-  const tool: craftingTool = craftingTools.craftingToolsList.find(t => t.id === toolId);
+  const tool: craftingTool|undefined = craftingTools.craftingToolsList.find(t => t.id === toolId);
+  
+  if(!tool){
+    console.log('ERROR WHILE READING TOOL DATA');
+    return 'ERROR';}
   return tool.ability + '(' + tool.toolName + ')';
 }
 

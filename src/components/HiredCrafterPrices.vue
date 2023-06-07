@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 import {manufacturableItem} from "@/DataJsons/manufacturedItemsModels";
-import * as crafterStats from '../DataJsons/crafterStats.json'
+// import * as crafterStats from '../DataJsons/crafterStats.json'
 import {crafterRank, crafterType} from "@/DataJsons/crafterStatsModels";
 import {computed, ComputedRef, Ref, ref, UnwrapRef} from "vue";
 
@@ -32,16 +32,16 @@ const craftRankChoice: Ref<UnwrapRef<crafterRank | null>> = ref<crafterRank | nu
 
 //-----------below this goes into service --------------
 
-const crafters: ComputedRef<crafterStats[]> = computed(_ => {
-  switch (props.type) {
-    case crafterType.manufacturer:
-      return crafterStats.manufacturersStats;
-    case crafterType.enchanter:
-      return crafterStats.enchantersStats;
-    case crafterType.forger:
-      return crafterStats.forgersStats;
-  }
-});
+// const crafters: ComputedRef<crafterStats[]> = computed(_ => {
+//   switch (props.type) {
+//     case crafterType.manufacturer:
+//       return crafterStats.manufacturersStats;
+//     case crafterType.enchanter:
+//       return crafterStats.enchantersStats;
+//     case crafterType.forger:
+//       return crafterStats.forgersStats;
+//   }
+// });
 </script>
 <style scoped>
 

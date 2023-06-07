@@ -30,7 +30,9 @@
           <ManufactureItemDetails :item="selectedItem"></ManufactureItemDetails>
         </v-col>
         <v-col>
-          <HiredCrafterPrices :item="selectedItem" type="manufacturer"></HiredCrafterPrices>
+          <HiredCrafterPrices 
+          :item="selectedItem" 
+          :type="crafterType.manufacturer"></HiredCrafterPrices>
         </v-col>
     </v-row>
   </v-container>
@@ -43,6 +45,7 @@ import {computed, ComputedRef, Ref, ref} from "vue";
 
 import * as manufacturableItems from '../DataJsons/manufacturedItems.json'
 import {manufacturableItem, manufacturableItemCategory} from "@/DataJsons/manufacturedItemsModels";
+import {crafterType} from "@/DataJsons/crafterStatsModels";
 import ManufactureItemDetails from "@/components/ManufactureItemDetails.vue";
 import HiredCrafterPrices from "@/components/HiredCrafterPrices.vue";
 

@@ -24,8 +24,6 @@
       </v-col>
     </v-row>
   </v-container>
-  DEBUG:<br/>
-  Item: {{selectedBaseItemName}} <br/> CrafterType: {{selectedCrafter}}
 </template>
 
 <script setup lang="ts">

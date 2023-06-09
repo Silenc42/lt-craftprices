@@ -41,8 +41,8 @@ const craftRankChoice: Ref<UnwrapRef<crafterRank | null>> = ref<crafterRank | nu
 const displayModel = computed(_ => ({
   dc: props.item?.dc,
   modifier: selectedCrafter.value?.modifier,
-  craftingTime: (props.item.timeInHours / selectedCrafter.value?.speedFactor).toFixed(2),
-  crafterCost: (props.item.timeInHours / selectedCrafter.value?.speedFactor * selectedCrafter.value?.hourlyRate).toFixed(2)
+  craftingTime: crafterCraftingTime,
+  crafterCost: priceOfCrafting
 }));
 
 const selectedCrafter: ComputedRef<crafterStats | null> = computed(_ => {
@@ -59,6 +59,17 @@ const selectedCrafter: ComputedRef<crafterStats | null> = computed(_ => {
   }
 });
 
+const crafterCraftingTime = computed(_ => {
+  const normalCraftingTime = props.item.timeInHours;
+  const speedFactor = selectedCrafter.value?.speedFactor ?? 1;
+  return roundForDisplay(normalCraftingTime / speedFactor);
+})
+
+const priceOfCrafting = computed(_ => {
+  const gpPerHour = selectedCrafter.value?.hourlyRate ?? 1;
+  return roundForDisplay(crafterCraftingTime.value * gpPerHour);
+})
+
 function getCraftersOfType(type: crafterType): craftersOfType {
   switch (type) {
     case crafterType.manufacturer:
@@ -68,6 +79,9 @@ function getCraftersOfType(type: crafterType): craftersOfType {
     case crafterType.forger:
       return craftersList.forgers;
   }
+}
+function roundForDisplay(x: number): number{
+  return Math.round(x*100)/100;
 }
 </script>
 <style scoped>

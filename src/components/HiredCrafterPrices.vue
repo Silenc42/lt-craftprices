@@ -21,9 +21,6 @@
   <v-row>
     Material Cost: {{ item.materialCost }}
   </v-row>
-  <v-row>
-    Crafter: {{ selectedCrafter?.speedFactor?? 'NULL' }}
-  </v-row>
   </div>
 </template>
 

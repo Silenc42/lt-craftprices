@@ -14,7 +14,6 @@
           </v-col>
         </v-row>
         <v-row>
-<!--          <Manufacture/>-->
           <main-crafting-view/>
         </v-row>
       </v-container>
@@ -23,6 +22,5 @@
 </template>
 
 <script setup lang="ts">
-// import Manufacture from "@/components/Manufacture.vue";
 import MainCraftingView from "@/components/MainCraftingView.vue";
 </script>

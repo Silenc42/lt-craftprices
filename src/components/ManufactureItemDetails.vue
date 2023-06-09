@@ -7,13 +7,13 @@
       Manufacturing Check: DC {{ props.item.dc }} check with {{ toolsDisplay }}
     </v-row>
     <v-row>
-      Crafting Time: {{props.item.timeInHours}} hour{{ props.item.timeInHours !== 1 ? 's' : ''}} ({{props.item.timeInHours/8}} workday{{ props.item.timeInHours/8 !== 1 ? 's' : ''}})
+      Crafting Time: {{ displayTimeFromHours(props.item.timeInHours) }}
     </v-row>
     <v-row>
-      Material Cost: {{props.item.materialCost}}gp
+      Material Cost: {{ props.item.materialCost }}gp
     </v-row>
     <v-row>
-      Item Value: {{props.item.itemValue}}gp
+      Item Value: {{ props.item.itemValue }}gp
     </v-row>
   </div>
 </template>
@@ -36,11 +36,12 @@ const toolsDisplay: ComputedRef<string> = computed(_ => {
 });
 
 function toolChecksFromId(toolId: string): string {
-  const tool: craftingTool|undefined = craftingTools.craftingToolsList.find(t => t.id === toolId);
-  
-  if(!tool){
-    console.log('ERROR WHILE READING TOOL DATA');
-    return 'ERROR';}
+  const tool: craftingTool | undefined = craftingTools.craftingToolsList.find(t => t.id === toolId);
+
+  if (!tool) {
+    console.error('ERROR WHILE READING TOOL DATA');
+    return 'ERROR';
+  }
   return tool.ability + '(' + tool.toolName + ')';
 }
 
@@ -49,6 +50,10 @@ function replaceLastCommaWithOr(commaSeparatedList: string) {
     .split('').reverse().join('')
     .replace(',', 'ro ')
     .split('').reverse().join('');
+}
+
+function displayTimeFromHours(hours: number): string {
+  return hours + ' hour' + (hours !== 1 ? 's' : '') + ' (' + hours / 8 + ' workday' + (hours / 8 !== 1 ? 's' : '') + ')';
 }
 </script>
 

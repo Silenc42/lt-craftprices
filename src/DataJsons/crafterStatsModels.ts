@@ -9,14 +9,18 @@ export enum crafterRank {
   master = 'master'
 }
 
-export interface craftersStats {
-  manufacturersStats: crafterStats[],
-  enchantersStats: crafterStats[],
-  forgersStats: crafterStats[],
-
+export interface craftersList {
+  manufacturers: craftersOfType,
+  enchanters: craftersOfType,
+  forgers: craftersOfType,
 }
+export interface craftersOfType {
+  journeyman: crafterStats,
+  expert: crafterStats,
+  master: crafterStats,
+}
+
 export interface crafterStats {
-  rank: crafterRank,
   speedFactor: number,
   modifier: number,
   hourlyRate: number,

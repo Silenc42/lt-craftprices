@@ -1,13 +1,10 @@
+import {craftableItem} from "@/DataJsons/craftableItem";
+
 export interface manufacturableItemCategory {
   categoryName: string;
   items: manufacturableItem[];
 }
 
-export interface manufacturableItem {
+export interface manufacturableItem extends craftableItem{
   tools: string[];
-  itemName: string;
-  dc: string;
-  timeInHours: number;
-  materialCost: number;
-  itemValue: number;
 }

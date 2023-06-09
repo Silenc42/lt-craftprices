@@ -17,7 +17,7 @@
     </v-row>
     <v-row align="start" justify="center">
       <v-col>
-        <DisplayerOfCrafterStats/>
+        <DisplayerOfCrafterStats v-model:chosenCrafter="selectedCrafter"/>
       </v-col>
       <v-col>
         <DisplayerOfCraftingOffer/>
@@ -34,10 +34,11 @@ import SelectorOfEnchantment from "@/components/SelectorOfEnchantment.vue";
 import SelectorOfCrafter from "@/components/SelectorOfCrafter.vue";
 import DisplayerOfCrafterStats from "@/components/DisplayerOfCrafterStats.vue";
 import DisplayerOfCraftingOffer from "@/components/DisplayerOfCraftingOffer.vue";
-import {ref} from "vue";
+import {Ref, ref, UnwrapRef} from "vue";
+import {crafterRankEnum} from "@/DataRepositoriesAndModels/crafterChoices";
 
 const selectedBaseItemName = ref();
-const selectedCrafter = ref();
+const selectedCrafter: Ref<UnwrapRef<crafterRankEnum>> = ref(crafterRankEnum.diy);
 </script>
 
 <style scoped>

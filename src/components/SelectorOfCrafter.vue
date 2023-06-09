@@ -1,7 +1,7 @@
 <template>
   Select crafter:
   <v-radio-group
-    inline=""
+    inline
     v-model="selectedCrafter"
     @update:modelValue="updatedCrafterSelection()">
     <v-radio label="Self-crafted" :value="crafterRankEnum.diy"/>

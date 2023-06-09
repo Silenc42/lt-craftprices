@@ -8,7 +8,7 @@ import { fileURLToPath, URL } from 'node:url'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/lt-craftprices-deploy/',
+  base: '/lt-craftprices/',
   plugins: [
     vue({
       template: { transformAssetUrls }

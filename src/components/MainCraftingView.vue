@@ -20,7 +20,7 @@
         <DisplayerOfCrafterStats v-model:chosenCrafter="selectedCrafter"/>
       </v-col>
       <v-col>
-        <DisplayerOfCraftingOffer/>
+        <DisplayerOfCraftingOffer v-model:chosenCrafter="selectedCrafter" v-model:chosenItemName="selectedBaseItemName"/>
       </v-col>
     </v-row>
   </v-container>

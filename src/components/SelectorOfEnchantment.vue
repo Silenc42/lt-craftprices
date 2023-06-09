@@ -1,5 +1,5 @@
 <template>
-  Enchantment Selection coming soon&trade;
+  Enchantment Selection: coming soon&trade;
 </template>
 
 <script setup lang="ts">

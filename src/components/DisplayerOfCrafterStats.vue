@@ -49,7 +49,7 @@ import {crafterRankEnum, crafterRankValidator, crafterTypeEnum} from "@/DataRepo
 import {getCrafterStatsForDisplay} from "@/Calculators/CalculatorOfCrafters";
 import {computed} from "vue";
 
-let props = defineProps({
+const props = defineProps({
   chosenCrafter: {
     type: String,
     validator(value: string): boolean {

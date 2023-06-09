@@ -16,8 +16,17 @@ export function baseItemCategories(): string[] {
 export function baseItemsByCategory(desiredCategory: string): baseItem[] {
   const category = baseItemData.manufactureCategories.find(c => c.categoryName === desiredCategory);
   if (!category) {
-    console.error('nonexistent category requested from repo of base items');
     throw 'nonexistent category requested from repo of base items';
   }
   return category.items;
+}
+
+export function baseItemByName(itemName: string): baseItem {
+  const item = baseItemData.manufactureCategories
+    .flatMap(category => category.items)
+    .find(item => item.itemName === itemName);
+  if (!item) {
+    throw 'nonexistent item was requested from base item repo by name: ' + itemName;
+  }
+  return item;
 }

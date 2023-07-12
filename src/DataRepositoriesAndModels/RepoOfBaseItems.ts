@@ -7,7 +7,7 @@ export interface baseItem {
   tools: string[];
 }
 
-import * as baseItemData from '@/DataRepositoriesAndModels/baseItemsData.json'
+import * as baseItemData from '@/DataRepositoriesAndModels/DataOfBaseItems.json'
 
 export function baseItemCategories(): string[] {
   return baseItemData.manufactureCategories.map(category => category.categoryName);

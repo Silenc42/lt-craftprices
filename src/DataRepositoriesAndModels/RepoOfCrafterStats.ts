@@ -9,7 +9,7 @@ export interface crafterStats {
   "overtimeRate": number
 }
 
-import * as crafterStatsData from '@/DataRepositoriesAndModels/crafterStatsData.json'
+import * as crafterStatsData from '@/DataRepositoriesAndModels/DataOfCrafterStats.json'
 
 export function getCrafterStats(rank: crafterRankEnum, type: crafterTypeEnum): crafterStats {
   const crafterStats = crafterStatsData

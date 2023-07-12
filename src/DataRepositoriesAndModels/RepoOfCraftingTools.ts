@@ -5,7 +5,7 @@ export interface craftingToolStats {
   //itemTypes: string
 }
 
-import * as craftingToolsData from '@/DataRepositoriesAndModels/craftingTools.json'
+import * as craftingToolsData from '@/DataRepositoriesAndModels/DataOfCraftingTools.json'
 
 export function getCraftingTool(toolId: string): craftingToolStats {
   const toolStats = craftingToolsData

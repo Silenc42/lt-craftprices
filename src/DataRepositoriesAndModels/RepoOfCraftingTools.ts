@@ -1,7 +1,7 @@
 export interface craftingToolStats {
   toolId: string,
   toolName: string,
-  ability: string
+  abilities: string[]
   //itemTypes: string
 }
 
@@ -18,7 +18,7 @@ export function getCraftingTool(toolId: string): craftingToolStats {
   return {
     toolId: toolStats.id,
     toolName: toolStats.toolName,
-    ability: toolStats.ability,
+    abilities: toolStats.abilities,
     //itemTypes: toolStats.itemTypes
   };
 }

@@ -3,115 +3,115 @@
     {
       "id": "alch",
       "toolName": "Alchemist’s supplies",
-      "ability": "Intelligence",
+      "abilities": ["Intelligence"],
       "itemTypes": "Potions; miscellaneous (any salves or lotions)"
     },
     {
       "id": "brew",
       "toolName": "Brewer’s supplies",
-      "ability": "Constitution",
+      "abilities": ["Constitution"],
       "itemTypes": "Potions"
     },
     {
       "id": "call",
       "toolName": "Calligrapher’s supplies",
-      "ability": "Dexterity",
+      "abilities": ["Dexterity"],
       "itemTypes": "Scrolls"
     },
     {
       "id": "carp",
       "toolName": "Carpenter’s tools",
-      "ability": "Dexterity or Strength",
+      "abilities": ["Dexterity", "Strength"],
       "itemTypes": "Ammunition (arrows, bolts, and blowgun needles), rods, staves, wands, weapons (polearms, blowguns, clubs, darts, greatclubs, javelins, longbows, nunchucks, quarterstaves, shortbows, tridents); miscellaneous (anything made of wood)"
     },
     {
       "id": "cart",
       "toolName": "Cartographer’s tools",
-      "ability": "Dexterity or Intelligence Maps;",
+      "abilities": ["Dexterity", "Intelligence"],
       "itemTypes": "miscellaneous (anything involving paper)"
     },
     {
       "id": "cobb",
       "toolName": "Cobbler’s tools",
-      "ability": "Dexterity or Intelligence",
+      "abilities": ["Dexterity", "Intelligence"],
       "itemTypes": "Miscellaneous (footwear)"
     },
     {
       "id": "cook",
       "toolName": "Cook’s utensils",
-      "ability": "Constitution",
+      "abilities": ["Constitution"],
       "itemTypes": "Food**"
     },
     {
       "id": "glass",
       "toolName": "Glassblower’s tools",
-      "ability": "Constitution or Dexterity",
+      "abilities": ["Constitution", "Dexterity"],
       "itemTypes": "Rods, staves, wands; miscellaneous (anything made of glass)"
     },
     {
       "id": "herb",
       "toolName": "Herbalism kit",
-      "ability": "Intelligence Potions;",
+      "abilities": ["Intelligence"],
       "itemTypes": "miscellaneous (any salves or lotions)"
     },
     {
       "id": "jewel",
       "toolName": "Jeweller’s tools",
-      "ability": "Dexterity",
+      "abilities": ["Dexterity"],
       "itemTypes": "Miscellaneous (anything involving jewels or precious metals)"
     },
     {
       "id": "leather",
       "toolName": "Leatherworker’s tools",
-      "ability": "Dexterity",
+      "abilities": ["Dexterity"],
       "itemTypes": "Armour (light or hide), weapons (whips)"
     },
     {
       "id": "mason",
       "toolName": "Mason’s tools",
-      "ability": "Strength",
+      "abilities": ["Strength"],
       "itemTypes": "Ammunition (sling bullets), miscellaneous (anything made of stone)"
     },
     {
       "id": "paint",
       "toolName": "Painter’s supplies",
-      "ability": "Dexterity",
+      "abilities": ["Dexterity"],
       "itemTypes": "Scrolls"
     },
     {
       "id": "poison",
       "toolName": "Poisoner’s kit",
-      "ability": "Dexterity or Intelligence",
+      "abilities": ["Dexterity", "Intelligence"],
       "itemTypes": "Poisons"
     },
     {
       "id": "potter",
       "toolName": "Potter’s tools",
-      "ability": "Dexterity",
+      "abilities": ["Dexterity"],
       "itemTypes": "Miscellaneous (anything made of clay)"
     },
     {
       "id": "smith",
       "toolName": "Smith’s tools",
-      "ability": "Constitution or Strength",
+      "abilities": ["Constitution", "Strength"],
       "itemTypes": "Ammunition (firearm shot and sling bullets), armour (heavy or medium except hide), rods, staves, wands, weapons (axes, polearms, swords, daggers, flails, javelins, light hammers, maces, mauls, morningstars, tridents, war picks)"
     },
     {
       "id": "tinker",
       "toolName": "Tinker’s tools",
-      "ability": "Dexterity",
+      "abilities": ["Dexterity"],
       "itemTypes": "Rods, staves, wands, weapons (crossbows, firearms, tommybows), wondrous items (anything with a mechanism)"
     },
     {
       "id": "weaver",
       "toolName": "Weaver’s tools",
-      "ability": "Constitution or Dexterity",
+      "abilities": ["Constitution", "Dexterity"],
       "itemTypes": "Armour (padded), weapons (nets, slings); miscellaneous (cloaks, hats,robes, anything made of cloth)"
     },
     {
       "id": "wood",
       "toolName": "Woodcarver’s tools",
-      "ability": "Dexterity or Strength",
+      "abilities": ["Dexterity", "Strength"],
       "itemTypes": "Ammunition (arrows, bolts, and blowgun needles), rods, staves, wands, weapons (polearms, blowguns, clubs, darts, greatclubs, javelins, longbows, nunchucks, quarterstaves, shortbows, tridents); miscellaneous (anything made of wood)"
     }
   ]

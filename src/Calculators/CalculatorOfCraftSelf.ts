@@ -13,11 +13,10 @@ export function getCraftSelfToolsForDisplay(itemName: string): craftSelfToolsDis
   }
 
   const item: baseItem = baseItemByName(itemName);
-
   return {
-    toolChoices: item.tools.map(t => {
+    toolChoices: item.tools.flatMap(t => {
       const toolDetails: craftingToolStats = getCraftingTool(t);
-      return toolDetails.ability + "(" + toolDetails.toolName + ")";
+      return toolDetails.abilities.map(a => a + "(" + toolDetails.toolName + ")")
     })
   }
 }

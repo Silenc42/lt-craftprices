@@ -17,7 +17,8 @@
     </v-row>
     <v-row align="start" justify="center">
       <v-col>
-        <DisplayerOfCrafterStats v-model:chosenCrafter="selectedCrafter"/>
+        <DisplayerOfCraftSelf v-if="selectedCrafter === crafterRankEnum.diy" v-model:chosenItemName="selectedBaseItemName"/>
+        <DisplayerOfCrafterStats v-else v-model:chosenCrafter="selectedCrafter"/>
       </v-col>
       <v-col>
         <DisplayerOfCraftingOffer v-model:chosenCrafter="selectedCrafter" v-model:chosenItemName="selectedBaseItemName"/>
@@ -34,6 +35,7 @@ import DisplayerOfCrafterStats from "@/components/DisplayerOfCrafterStats.vue";
 import DisplayerOfCraftingOffer from "@/components/DisplayerOfCraftingOffer.vue";
 import {Ref, ref, UnwrapRef} from "vue";
 import {crafterRankEnum} from "@/DataRepositoriesAndModels/crafterChoices";
+import DisplayerOfCraftSelf from "./DisplayerOfCraftSelf.vue";
 
 const selectedBaseItemName = ref();
 const selectedCrafter: Ref<UnwrapRef<crafterRankEnum>> = ref(crafterRankEnum.diy);

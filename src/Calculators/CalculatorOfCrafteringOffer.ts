@@ -14,7 +14,7 @@ export function getCraftingOfferForDisplay(crafterRank: crafterRankEnum, crafter
   if (!itemName) {
     return {
       dc: '--',
-      modifier: 'your modifier',
+      modifier: '--',
       craftingTime: '--',
       crafterCost: '--',
       materialCost: '--'
@@ -27,7 +27,7 @@ export function getCraftingOfferForDisplay(crafterRank: crafterRankEnum, crafter
     return {
       dc: item.dc,
       modifier: 'your modifier',
-      craftingTime: item.timeInHours + ', if you\'re not faster',
+      craftingTime: item.timeInHours + ', without feats',
       crafterCost: 'none',
       materialCost: item.materialCost + 'gp'
     }

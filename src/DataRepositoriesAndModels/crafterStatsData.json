@@ -25,6 +25,14 @@
       "overtimeRate": 18
     },
     {
+      "type": "manufacturer",
+      "rank": "LArseneSimple",
+      "speedFactor": 3,
+      "modifier": 11,
+      "hourlyRate": 4,
+      "overtimeRate": 8
+    },
+    {
       "type": "enchanter",
       "rank": "journeyman",
       "speedFactor": 1,
@@ -49,6 +57,14 @@
       "overtimeRate": 360
     },
     {
+      "type": "manufacturer",
+      "rank": "LArseneSimple",
+      "speedFactor": 3,
+      "modifier": 11,
+      "hourlyRate": 80,
+      "overtimeRate": 160
+    },
+    {
       "type": "forger",
       "rank": "journeyman",
       "speedFactor": 1,
@@ -71,6 +87,14 @@
       "modifier": 11,
       "hourlyRate": 200,
       "overtimeRate": 400
+    },
+    {
+      "type": "manufacturer",
+      "rank": "LArseneSimple",
+      "speedFactor": 3,
+      "modifier": 11,
+      "hourlyRate": 100,
+      "overtimeRate": 200
     }
   ]
 }

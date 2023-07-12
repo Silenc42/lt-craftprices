@@ -1,8 +1,5 @@
 - Self-crafted shall have its own data and style, not just a knockoff of the hired crafter's display
 
-- L'Arsene as crafter option
--- requires mapping tools
-
 - Enchanting
 
 - Forging
@@ -12,3 +9,9 @@
 - cooperation between multiple crafters.
 -- Slider to distribute work between two crafters (presumably self and a selected one)
 -- Display Weighted average for checks nicely
+
+
+(maybe)
+- L'Arsene (complicated) as crafter option
+-- Uses stats depending on his stats and proficiencies described in Heliana's
+-- requires mapping tools

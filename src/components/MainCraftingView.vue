@@ -10,7 +10,7 @@
     </v-row>
     <v-row align="start" justify="center">
       <v-spacer/>
-      <v-col>
+      <v-col cols="5">        
         <SelectorOfCrafter v-model:selectedCrafter="selectedCrafter"/>
       </v-col>
       <v-spacer/>

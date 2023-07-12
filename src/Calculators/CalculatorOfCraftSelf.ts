@@ -8,7 +8,7 @@ export interface craftSelfToolsDisplayModel {
 export function getCraftSelfToolsForDisplay(itemName: string): craftSelfToolsDisplayModel {
   if (!itemName) {
     return {
-      toolChoices: ['--']
+      toolChoices: []
     }
   }
 

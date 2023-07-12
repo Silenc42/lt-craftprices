@@ -11,20 +11,45 @@ export interface crafterStatsDisplayModel {
 
 export function getCrafterStatsForDisplay(crafterRank: crafterRankEnum, crafterType: crafterTypeEnum): crafterStatsDisplayModel {
   if (crafterRank == crafterRankEnum.diy) {
-    return {
-      name: 'Player Character',
-      speed: 'check your sheet',
-      check: 'check your sheet',
-      hourlyRate: 'none',
-      overtimeRate: 'none'
-    }
+    throw "Crafter Calculator called for self crafting. Use CalculatorOfCraftSelf for that."
   }
   const stats: crafterStats = getCrafterStats(crafterRank, crafterType);
   return {
-    name: stats.rank + ' ' + stats.type,
-    speed: 'x'+stats.speedFactor,
+    name: displayCrafterType(stats.rank, stats.type),
+    speed: 'x' + stats.speedFactor,
     check: '+' + stats.modifier,
     hourlyRate: stats.hourlyRate + 'gp',
     overtimeRate: stats.overtimeRate + 'gp',
   }
+}
+
+function displayCrafterType(rank: crafterRankEnum, type: crafterTypeEnum): string {
+  const builder: string[] = [];
+  switch (type) {
+    case crafterTypeEnum.manufacturer:
+      builder.push("Manufactured");
+      break;
+    case crafterTypeEnum.enchanter:
+      builder.push("Enchanted");
+      break;
+    case crafterTypeEnum.forger:
+      builder.push("Forged");
+      break;
+  }
+  builder.push(" by ");
+  switch (rank) {
+    case crafterRankEnum.journeyman:
+      builder.push(" a Journeyman");
+      break;
+    case crafterRankEnum.expert:
+      builder.push(" an Expert");
+      break;
+    case crafterRankEnum.master:
+      builder.push(" a Master");
+      break;
+    case crafterRankEnum.larseneSimple:
+      builder.push(" L'Arséne Upin");
+      break;
+  }
+  return builder.join('');
 }

@@ -1,0 +1,110 @@
+{
+  "essences": [
+    {
+      "rarity": "Common",
+      "essenceType": "--",
+      "enchantingDC": 12,
+      "enchantingTimeConsumable": 0.5,
+      "enchantingTimeNonAttunement": 1,
+      "enchantingTimeAttunement": 2
+    },
+    {
+      "rarity": "Uncommon",
+      "essenceType": "Frail",
+      "enchantingDC": 15,
+      "enchantingTimeConsumable": 4,
+      "enchantingTimeNonAttunement": 10,
+      "enchantingTimeAttunement": 20
+    },
+    {
+      "rarity": "Rare",
+      "essenceType": "Robust",
+      "enchantingDC": 18,
+      "enchantingTimeConsumable": 20,
+      "enchantingTimeNonAttunement": 40,
+      "enchantingTimeAttunement": 80
+    },
+    {
+      "rarity": "Very Rare",
+      "essenceType": "Potent",
+      "enchantingDC": 21,
+      "enchantingTimeConsumable": 80,
+      "enchantingTimeNonAttunement": 160,
+      "enchantingTimeAttunement": 320
+    },
+    {
+      "rarity": "Legendary",
+      "essenceType": "Mythic",
+      "enchantingDC": 25,
+      "enchantingTimeConsumable": 320,
+      "enchantingTimeNonAttunement": 640,
+      "enchantingTimeAttunement": 1280
+    },
+    {
+      "rarity": "Artifact",
+      "essenceType": "Deific",
+      "enchantingDC": 30,
+      "enchantingTimeConsumable": 50000,
+      "enchantingTimeNonAttunement": 100000,
+      "enchantingTimeAttunement": 200000
+    }
+  ],
+  "creatureTypes":[
+    {
+      "creatureType": "Abberation",
+      "skill": "Arcana"
+    },
+    {
+      "creatureType": "Beast",
+      "skill": "Survival"
+    },
+    {
+      "creatureType": "Celestial",
+      "skill": "Religion"
+    },
+    {
+      "creatureType": "Construct",
+      "skill": "Investigation"
+    },
+    {
+      "creatureType": "Dragon",
+      "skill": "Survival"
+    },
+    {
+      "creatureType": "Elemental",
+      "skill": "Arcana"
+    },
+    {
+      "creatureType": "Fey",
+      "skill": "Arcana"
+    },
+    {
+      "creatureType": "Fiend",
+      "skill": "Religion"
+    },
+    {
+      "creatureType": "Giant",
+      "skill": "Medicine"
+    },
+    {
+      "creatureType": "Humanoid",
+      "skill": "Medicine"
+    },
+    {
+      "creatureType": "Monstrosity",
+      "skill": "Survival"
+    },
+    {
+      "creatureType": "Ooze",
+      "skill": "Nature"
+    },
+    {
+      "creatureType": "Plant",
+      "skill": "Nature"
+    },
+    {
+      "creatureType": "Undead",
+      "skill": "Medicine"
+    },
+  ]
+}

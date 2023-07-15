@@ -5,9 +5,7 @@
       <v-col>
         <v-switch
           v-model="doEnchanting"
-          true-value="yes"
-          false-value="no"
-          :label="`Enchant Item: ${doEnchanting}`"
+          :label="`${doEnchantingLabel}`"
           @update:model-value="updatedDoEnchanting()"
         />
       </v-col>
@@ -45,6 +43,8 @@ import {
   monsterTypes,
   essence,
 } from "@/DataRepositoriesAndModels/RepoOfEnchantings";
+import { computed } from "vue";
+import { ComputedRef } from "vue";
 import { Ref, ref } from "vue";
 
 const monsterType: Ref<monsterTypes | null> = ref(null);
@@ -76,6 +76,8 @@ function updatedDoEnchanting(): void {
   emit("update:selectedMonsterType", "");
   emit("update:selectedRarity", "");
 }
+
+const doEnchantingLabel: ComputedRef<string> = computed(() => (doEnchanting.value ? "":"Don't ") + "Enchant Item" );
 </script>
 
 <style scoped></style>

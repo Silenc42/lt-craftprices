@@ -9,7 +9,13 @@ export enum crafterRankEnum {
   master = 'master',
   larseneSimple = 'LArseneSimple'
 }
+
+export function crafterTypeValidator(value: string) {
+  return value === '' || value === 'manufacturer' || value === 'enchanter' || value === 'forger'
+}
+
 export enum crafterTypeEnum {
+  none = '',
   manufacturer = 'manufacturer',
   enchanter = 'enchanter',
   forger = 'forger'

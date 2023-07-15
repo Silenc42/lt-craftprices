@@ -2,10 +2,17 @@
   <v-container>
     <v-row align="start" justify="center">
       <v-col>
-        <SelectorOfBaseItem v-model:selectedItemName="selectedBaseItemName" />
+        <SelectorOfBaseItem
+          v-model:selectedItemName="selectedBaseItemName"
+          v-model:craft-base-item="craftBaseItem"
+        />
       </v-col>
       <v-col>
-        <SelectorOfEnchantment />
+        <SelectorOfEnchantment
+          v-model:do-enchanting="doEnchanting"
+          v-model:selected-monster-type="monsterType"
+          v-model:selected-rarity="itemRarity"
+        />
       </v-col>
     </v-row>
     <v-row align="start" justify="center">
@@ -23,7 +30,8 @@
         />
         <DisplayerOfCrafterStats
           v-else
-          v-model:chosenCrafter="selectedCrafter"
+          v-model:chosenCrafterRank="selectedCrafter"
+          v-model:chosenCrafterType="craftingType"
         />
       </v-col>
       <v-col>
@@ -43,10 +51,33 @@ import SelectorOfCrafter from "@/components/SelectorOfCrafter.vue";
 import DisplayerOfCrafterStats from "@/components/DisplayerOfCrafterStats.vue";
 import DisplayerOfCraftingOffer from "@/components/DisplayerOfCraftingOffer.vue";
 import { Ref, ref, UnwrapRef } from "vue";
-import { crafterRankEnum } from "@/DataRepositoriesAndModels/crafterChoices";
+import {
+  crafterRankEnum,
+  crafterTypeEnum,
+} from "@/DataRepositoriesAndModels/crafterChoices";
 import DisplayerOfCraftSelf from "./DisplayerOfCraftSelf.vue";
+import { ComputedRef } from "vue";
+import { computed } from "vue";
 
-const selectedBaseItemName = ref();
+const craftBaseItem: Ref<boolean> = ref(false);
+const doEnchanting: Ref<boolean> = ref(false);
+const craftingType = computed(() => {
+  if (craftBaseItem.value && doEnchanting.value) {
+    return crafterTypeEnum.forger.toString();
+  }
+  if (!craftBaseItem.value && doEnchanting.value) {
+    return crafterTypeEnum.enchanter.toString();
+  }
+  if (craftBaseItem.value && !doEnchanting.value) {
+    return crafterTypeEnum.manufacturer.toString();
+  }
+
+  return crafterTypeEnum.none.toString();
+});
+
+const selectedBaseItemName: Ref<string | undefined> = ref();
+const monsterType: Ref<string | undefined> = ref();
+const itemRarity: Ref<string | undefined> = ref();
 const selectedCrafter: Ref<UnwrapRef<crafterRankEnum>> = ref(
   crafterRankEnum.diy
 );

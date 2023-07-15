@@ -5,9 +5,8 @@
       <v-col>
         <v-switch
           v-model="isCrafted"
-          true-value="craft"
-          false-value="buy"
-          :label="`Craft Item: ${isCrafted}`"
+          :label="`${isCraftedLabel}`"
+          @update:model-value="updatedCraftBaseItem()"
         />
       </v-col>
     </v-row>
@@ -58,16 +57,26 @@ const itemsForSelection: ComputedRef<baseItem[]> = computed((_) => {
 const selectedItem: Ref<baseItem | null> = ref(null);
 const isCrafted: Ref<boolean> = ref(false);
 
-defineProps({ selectedItemName: String });
-const emit = defineEmits(["update:selectedItemName"]);
+defineProps({
+  craftBaseItem: Boolean,
+  selectedItemName: String,
+});
+const emit = defineEmits(["update:craftBaseItem", "update:selectedItemName"]);
 
 function updatedCategorySelection(): void {
   selectedItem.value = null;
 }
 
+function updatedCraftBaseItem(): void {
+  emit("update:craftBaseItem", isCrafted.value);
+}
 function updatedItemSelection(): void {
   emit("update:selectedItemName", selectedItem.value?.itemName);
 }
+
+const isCraftedLabel: ComputedRef<string> = computed(
+  () => (isCrafted.value ? "Craft " : "Buy ") + "Base Item"
+);
 </script>
 
 <style scoped></style>

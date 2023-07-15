@@ -45,20 +45,26 @@
 </template>
 
 <script setup lang="ts">
-import {crafterRankEnum, crafterRankValidator, crafterTypeEnum} from "@/DataRepositoriesAndModels/crafterChoices";
+import {crafterRankEnum, crafterRankValidator, crafterTypeEnum, crafterTypeValidator} from "@/DataRepositoriesAndModels/crafterChoices";
 import {getCrafterStatsForDisplay} from "@/Calculators/CalculatorOfCrafters";
 import {computed} from "vue";
 
 const props = defineProps({
-  chosenCrafter: {
+  chosenCrafterRank: {
     type: String,
     validator(value: string): boolean {
       return crafterRankValidator(value);
     }
+  },
+  chosenCrafterType: {
+    type: String,
+    validator(value: string): boolean {
+      return crafterTypeValidator(value);
+    }
   }
 });
 
-const displayModel = computed(_ => getCrafterStatsForDisplay(props.chosenCrafter as crafterRankEnum, crafterTypeEnum.manufacturer))
+const displayModel = computed(_ => getCrafterStatsForDisplay(props.chosenCrafterRank as crafterRankEnum, props.chosenCrafterType as crafterTypeEnum))
 </script>
 
 <style scoped>

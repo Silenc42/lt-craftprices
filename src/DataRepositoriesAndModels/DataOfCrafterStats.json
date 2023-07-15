@@ -57,7 +57,7 @@
       "overtimeRate": 360
     },
     {
-      "type": "manufacturer",
+      "type": "enchanter",
       "rank": "LArseneSimple",
       "speedFactor": 3,
       "modifier": 11,
@@ -89,7 +89,7 @@
       "overtimeRate": 400
     },
     {
-      "type": "manufacturer",
+      "type": "forger",
       "rank": "LArseneSimple",
       "speedFactor": 3,
       "modifier": 11,

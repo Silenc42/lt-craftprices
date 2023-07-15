@@ -13,6 +13,17 @@ export function getCrafterStatsForDisplay(crafterRank: crafterRankEnum, crafterT
   if (crafterRank == crafterRankEnum.diy) {
     throw "Crafter Calculator called for self crafting. Use CalculatorOfCraftSelf for that."
   }
+
+  if(crafterType == crafterTypeEnum.none){
+    return{
+      name: "At this point, you\'re shopping",
+      speed: '',
+      check: '',
+      hourlyRate: '',
+      overtimeRate: '',
+    }
+  }
+
   const stats: crafterStats = getCrafterStats(crafterRank, crafterType);
   return {
     name: displayCrafterType(stats.rank, stats.type),

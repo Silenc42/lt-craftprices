@@ -31,7 +31,7 @@
 import {computed, ComputedRef, Ref, ref} from "vue";
 import {baseItem, baseItemCategories, baseItemsByCategory} from "@/DataRepositoriesAndModels/RepoOfBaseItems";
 
-defineProps({'selectedItemName': String});
+defineProps({selectedItemName: String});
 const emit = defineEmits(['update:selectedItemName'])
 
 const categoriesForSelection: string[] = baseItemCategories();

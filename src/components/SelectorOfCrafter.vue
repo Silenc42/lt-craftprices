@@ -18,7 +18,7 @@ import {Ref, ref, UnwrapRef} from "vue";
 
 const selectedCrafter: Ref<UnwrapRef<crafterRankEnum>> = ref(crafterRankEnum.diy);
 
-defineProps({'selectedCrafter': String});
+defineProps({selectedCrafter: String});
 const emit = defineEmits(['update:selectedCrafter'])
 function updatedCrafterSelection(): void {
   emit('update:selectedCrafter', selectedCrafter.value)

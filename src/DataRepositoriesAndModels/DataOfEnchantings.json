@@ -49,62 +49,62 @@
       "enchantingTimeAttunement": 200000
     }
   ],
-  "creatureTypes":[
+  "monsterTypes":[
     {
-      "creatureType": "Abberation",
+      "monsterType": "Abberation",
       "skill": "Arcana"
     },
     {
-      "creatureType": "Beast",
+      "monsterType": "Beast",
       "skill": "Survival"
     },
     {
-      "creatureType": "Celestial",
+      "monsterType": "Celestial",
       "skill": "Religion"
     },
     {
-      "creatureType": "Construct",
+      "monsterType": "Construct",
       "skill": "Investigation"
     },
     {
-      "creatureType": "Dragon",
+      "monsterType": "Dragon",
       "skill": "Survival"
     },
     {
-      "creatureType": "Elemental",
+      "monsterType": "Elemental",
       "skill": "Arcana"
     },
     {
-      "creatureType": "Fey",
+      "monsterType": "Fey",
       "skill": "Arcana"
     },
     {
-      "creatureType": "Fiend",
+      "monsterType": "Fiend",
       "skill": "Religion"
     },
     {
-      "creatureType": "Giant",
+      "monsterType": "Giant",
       "skill": "Medicine"
     },
     {
-      "creatureType": "Humanoid",
+      "monsterType": "Humanoid",
       "skill": "Medicine"
     },
     {
-      "creatureType": "Monstrosity",
+      "monsterType": "Monstrosity",
       "skill": "Survival"
     },
     {
-      "creatureType": "Ooze",
+      "monsterType": "Ooze",
       "skill": "Nature"
     },
     {
-      "creatureType": "Plant",
+      "monsterType": "Plant",
       "skill": "Nature"
     },
     {
-      "creatureType": "Undead",
+      "monsterType": "Undead",
       "skill": "Medicine"
-    },
+    }
   ]
 }

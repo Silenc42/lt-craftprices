@@ -6,16 +6,16 @@ export interface essence {
   enchantingTimeNonAttunement: number,
   enchantingTimeAttunement: number
 }
-export interface creatureTypes {
-  creatureType: string,
+export interface monsterTypes {
+  monsterType: string,
   skill: string
 }
 
 import * as enchantingsData from '@/DataRepositoriesAndModels/DataOfEnchantings.json'
 
-export function getEssencesList(): essence[] {
+export function getEssenceTypesList(): essence[] {
   return enchantingsData.essences;
 }
-export function getcreatureTypesList(): creatureTypes[] {
-  return enchantingsData.creatureTypes;
+export function getMonsterTypesList(): monsterTypes[] {
+  return enchantingsData.monsterTypes;
 }

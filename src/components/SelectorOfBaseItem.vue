@@ -3,6 +3,16 @@
   <v-container>
     <v-row>
       <v-col>
+        <v-switch
+          v-model="isCrafted"
+          true-value="craft"
+          false-value="buy"
+          :label="`Craft Item: ${isCrafted}`"
+        />
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col>
         <v-select
           v-model="selectedCategory"
           label="Select Category"
@@ -28,34 +38,36 @@
 </template>
 
 <script setup lang="ts">
-import {computed, ComputedRef, Ref, ref} from "vue";
-import {baseItem, baseItemCategories, baseItemsByCategory} from "@/DataRepositoriesAndModels/RepoOfBaseItems";
-
-defineProps({selectedItemName: String});
-const emit = defineEmits(['update:selectedItemName'])
+import { computed, ComputedRef, Ref, ref } from "vue";
+import {
+  baseItem,
+  baseItemCategories,
+  baseItemsByCategory,
+} from "@/DataRepositoriesAndModels/RepoOfBaseItems";
 
 const categoriesForSelection: string[] = baseItemCategories();
 const selectedCategory: Ref<string | null> = ref(null);
-
-function updatedCategorySelection(): void {
-  selectedItem.value = null;
-}
-
-const itemsForSelection: ComputedRef<baseItem[]> = computed(_ => {
+const itemsForSelection: ComputedRef<baseItem[]> = computed((_) => {
   const selCat: string | null = selectedCategory.value;
   if (!selCat) {
     return [];
   }
   return baseItemsByCategory(selCat);
 });
-const selectedItem: Ref<baseItem | null> = ref(null);
 
-function updatedItemSelection(): void {
-  emit('update:selectedItemName', selectedItem.value?.itemName);
+const selectedItem: Ref<baseItem | null> = ref(null);
+const isCrafted: Ref<boolean> = ref(false);
+
+defineProps({ selectedItemName: String });
+const emit = defineEmits(["update:selectedItemName"]);
+
+function updatedCategorySelection(): void {
+  selectedItem.value = null;
 }
 
+function updatedItemSelection(): void {
+  emit("update:selectedItemName", selectedItem.value?.itemName);
+}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

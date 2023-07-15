@@ -2,26 +2,35 @@
   <v-container>
     <v-row align="start" justify="center">
       <v-col>
-        <SelectorOfBaseItem v-model:selectedItemName="selectedBaseItemName"/>
+        <SelectorOfBaseItem v-model:selectedItemName="selectedBaseItemName" />
       </v-col>
       <v-col>
-        <SelectorOfEnchantment/>
+        <SelectorOfEnchantment />
       </v-col>
     </v-row>
     <v-row align="start" justify="center">
-      <v-spacer/>
-      <v-col cols="5">        
-        <SelectorOfCrafter v-model:selectedCrafter="selectedCrafter"/>
+      <v-spacer />
+      <v-col cols="5">
+        <SelectorOfCrafter v-model:selectedCrafter="selectedCrafter" />
       </v-col>
-      <v-spacer/>
+      <v-spacer />
     </v-row>
     <v-row align="start" justify="center">
       <v-col>
-        <DisplayerOfCraftSelf v-if="selectedCrafter === crafterRankEnum.diy" v-model:chosenItemName="selectedBaseItemName"/>
-        <DisplayerOfCrafterStats v-else v-model:chosenCrafter="selectedCrafter"/>
+        <DisplayerOfCraftSelf
+          v-if="selectedCrafter === crafterRankEnum.diy"
+          v-model:chosenItemName="selectedBaseItemName"
+        />
+        <DisplayerOfCrafterStats
+          v-else
+          v-model:chosenCrafter="selectedCrafter"
+        />
       </v-col>
       <v-col>
-        <DisplayerOfCraftingOffer v-model:chosenCrafter="selectedCrafter" v-model:chosenItemName="selectedBaseItemName"/>
+        <DisplayerOfCraftingOffer
+          v-model:chosenCrafter="selectedCrafter"
+          v-model:chosenItemName="selectedBaseItemName"
+        />
       </v-col>
     </v-row>
   </v-container>
@@ -33,12 +42,14 @@ import SelectorOfEnchantment from "@/components/SelectorOfEnchantment.vue";
 import SelectorOfCrafter from "@/components/SelectorOfCrafter.vue";
 import DisplayerOfCrafterStats from "@/components/DisplayerOfCrafterStats.vue";
 import DisplayerOfCraftingOffer from "@/components/DisplayerOfCraftingOffer.vue";
-import {Ref, ref, UnwrapRef} from "vue";
-import {crafterRankEnum} from "@/DataRepositoriesAndModels/crafterChoices";
+import { Ref, ref, UnwrapRef } from "vue";
+import { crafterRankEnum } from "@/DataRepositoriesAndModels/crafterChoices";
 import DisplayerOfCraftSelf from "./DisplayerOfCraftSelf.vue";
 
 const selectedBaseItemName = ref();
-const selectedCrafter: Ref<UnwrapRef<crafterRankEnum>> = ref(crafterRankEnum.diy);
+const selectedCrafter: Ref<UnwrapRef<crafterRankEnum>> = ref(
+  crafterRankEnum.diy
+);
 </script>
 
 <style scoped>

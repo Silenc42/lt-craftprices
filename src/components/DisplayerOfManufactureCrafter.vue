@@ -14,8 +14,12 @@
       <v-col> {{ displayModel.materialCost }} </v-col>
     </v-row>
     <v-row>
-      <v-col> Crafting Cost: </v-col>
+      <v-col> Crafter's Cost: </v-col>
       <v-col> {{ displayModel.crafterCost }} </v-col>
+    </v-row>
+    <v-row>
+      <v-col> Total Cost: </v-col>
+      <v-col> {{ displayModel.totalCost }} </v-col>
     </v-row>
     <v-row>
       <v-col> Crafting DC: </v-col>

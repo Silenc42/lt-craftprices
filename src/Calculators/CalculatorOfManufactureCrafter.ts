@@ -16,6 +16,7 @@ export interface manufactureCrafterDisplayModel {
   craftingTimeInHours: string;
   materialCost: string;
   crafterCost: string;
+  totalCost: string;
   dc: string;
   modifier: string;
 }
@@ -27,12 +28,13 @@ export function getManufactureCrafterForDisplay(
 ): manufactureCrafterDisplayModel {
   if (!itemName) {
     return {
-      baseItemName: "",
-      craftingTimeInHours: "",
-      materialCost: "",
-      dc: "",
-      crafterCost: "",
-      modifier: "",
+      baseItemName: "Please, select an item",
+      craftingTimeInHours: "--",
+      materialCost: "--",
+      dc: "--",
+      crafterCost: "--",
+      totalCost: "--",
+      modifier: "--",
     };
   }
 
@@ -43,14 +45,25 @@ export function getManufactureCrafterForDisplay(
     materialCost: item.materialCost.toString() + " gp",
     dc: item.dc,
     craftingTimeInHours:
-      roundForDisplay(item.timeInHours / crafter.speedFactor) + " hours",
+      roundForDisplay(craftingTime(item, crafter)) + " hours",
     crafterCost:
-      roundForDisplay(
-        crafter.hourlyRate * (item.timeInHours / crafter.speedFactor)
-      ) + " gp",
+      roundForDisplay(craftingCost(item, crafter)) + " gp",
+    totalCost:
+      roundForDisplay(totalCraftingCost(item, crafter)) + " gp",
     modifier: "+" + crafter.modifier,
   };
 }
+
+function craftingTime(item: baseItem, crafter: crafterStats):number {
+  return item.timeInHours / crafter.speedFactor;
+}
+function craftingCost(item: baseItem, crafter: crafterStats):number {
+  return crafter.hourlyRate * craftingTime(item, crafter);
+}
+function totalCraftingCost(item: baseItem, crafter: crafterStats):number {
+  return item.materialCost + craftingCost(item, crafter);
+}
+
 
 function roundForDisplay(x: number): number {
   return Math.round(x * 100) / 100;

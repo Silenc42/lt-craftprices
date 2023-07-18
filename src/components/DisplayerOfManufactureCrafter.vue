@@ -1,22 +1,14 @@
 <template>
   {{ crafterName }} :
+
   <v-container>
     <v-row>
       <v-col> Item Name: </v-col>
       <v-col> {{ displayModel.baseItemName }} </v-col>
     </v-row>
-    <v-row>
-      <v-col> Crafting time: </v-col>
-      <v-col> {{ displayModel.craftingTimeInHours }} </v-col>
-    </v-row>
-    <v-row>
-      <v-col> Material Cost: </v-col>
-      <v-col> {{ displayModel.materialCost }} </v-col>
-    </v-row>
-    <v-row>
-      <v-col> Crafter's Cost: </v-col>
-      <v-col> {{ displayModel.crafterCost }} </v-col>
-    </v-row>
+  </v-container>
+  <hr />
+  <v-container>
     <v-row>
       <v-col> Total Cost: </v-col>
       <v-col> {{ displayModel.totalCost }} </v-col>
@@ -30,6 +22,25 @@
       <v-col>
         {{ displayModel.modifier }}
       </v-col>
+    </v-row>
+  </v-container>
+  <hr />
+  <v-container>
+    <v-row>
+      <v-col> Material Cost: </v-col>
+      <v-col> {{ displayModel.materialCost }} </v-col>
+    </v-row>
+    <v-row>
+      <v-col> Crafting time: </v-col>
+      <v-col> {{ displayModel.craftingTimeInHours }} </v-col>
+    </v-row>
+    <v-row>
+      <v-col> Hourly Rate: </v-col>
+      <v-col> {{ displayModel.hourlyRate }} </v-col>
+    </v-row>
+    <v-row>
+      <v-col> Crafter's Cost: </v-col>
+      <v-col> {{ displayModel.crafterCost }} </v-col>
     </v-row>
   </v-container>
 </template>

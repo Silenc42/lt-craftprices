@@ -56,7 +56,7 @@ const displayModel: ComputedRef<manufactureCrafterDisplayModel> = computed(() =>
   getManufactureCrafterForDisplay(props.chosenCrafterRank as crafterRankEnum, props.chosenCrafterType as crafterTypeEnum, props.chosenItemName ?? "")
 );
 
-const crafterName: ComputedRef<string> = computed(()=> getcrafterNameDisplay(props.chosenCrafterRank as crafterRankEnum, props.chosenCrafterType as crafterTypeEnum))
+const crafterName: ComputedRef<string> = computed(() => getcrafterNameDisplay(props.chosenCrafterRank as crafterRankEnum, props.chosenCrafterType as crafterTypeEnum))
 </script>
 
 <style scoped></style>

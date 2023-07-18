@@ -43,12 +43,11 @@ export function getManufactureCrafterForDisplay(
     materialCost: item.materialCost.toString() + " gp",
     dc: item.dc,
     craftingTimeInHours:
-      roundForDisplay(item.timeInHours / crafter.speedFactor) +
-      " hours without overtime",
+      roundForDisplay(item.timeInHours / crafter.speedFactor) + " hours",
     crafterCost:
       roundForDisplay(
         crafter.hourlyRate * (item.timeInHours / crafter.speedFactor)
-      ) + "gp",
+      ) + " gp",
     modifier: "+" + crafter.modifier,
   };
 }

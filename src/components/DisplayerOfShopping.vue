@@ -25,7 +25,7 @@ const itemPrice: ComputedRef<string> = computed((_) => {
   if (!props.chosenItemName) {
     return "";
   }
-  return baseItemByName(props.chosenItemName).itemValue.toString() + "gp";
+  return baseItemByName(props.chosenItemName).itemValue.toString() + " gp";
 }
 );
 </script>

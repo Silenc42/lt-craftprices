@@ -5,7 +5,7 @@ export interface craftSelfToolsDisplayModel {
   toolChoices: string[]
 }
 
-export function getCraftSelfToolsForDisplay(itemName: string): craftSelfToolsDisplayModel {
+export function getManufactureSelfToolsForDisplay(itemName: string): craftSelfToolsDisplayModel {
   if (!itemName) {
     return {
       toolChoices: []

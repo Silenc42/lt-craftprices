@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row align="start" justify="center">
+    <v-row justify="center">
       <v-col>
         <SelectorOfBaseItem
           v-model:selectedItemName="selectedBaseItemName"
@@ -15,26 +15,25 @@
         />
       </v-col>
     </v-row>
-    <v-row align="start" justify="center">
-      <v-spacer />
-      <v-col cols="5">
+    <v-row justify="center">
+      <v-col>
         <SelectorOfCrafter v-model:selectedCrafter="selectedCrafter" />
       </v-col>
-      <v-spacer />
     </v-row>
-    <v-row align="start" justify="center">
+    <v-row justify="center">
       <v-col>
         <DisplayerOfShopping
           v-if="craftingType === crafterTypeEnum.shopping"
           v-model:chosenItemName="selectedBaseItemName"
         />
-
-
-
-        <!-- <DisplayerOfCraftSelf
-          v-if="selectedCrafter === crafterRankEnum.diy"
+        <DisplayerOfManufactureSelf
+          v-if="craftingType === crafterTypeEnum.manufacturer"
           v-model:chosenItemName="selectedBaseItemName"
         />
+
+
+
+        <!-- 
         <DisplayerOfCrafterStats
           v-else
           v-model:chosenCrafterRank="selectedCrafter"
@@ -55,8 +54,6 @@
 import SelectorOfBaseItem from "@/components/SelectorOfBaseItem.vue";
 import SelectorOfEnchantment from "@/components/SelectorOfEnchantment.vue";
 import SelectorOfCrafter from "@/components/SelectorOfCrafter.vue";
-import DisplayerOfCrafterStats from "@/components/DisplayerOfCrafterStats.vue";
-import DisplayerOfCraftingOffer from "@/components/DisplayerOfCraftingOffer.vue";
 import { Ref, ref, UnwrapRef } from "vue";
 import {
   crafterRankEnum,
@@ -66,9 +63,11 @@ import DisplayerOfCraftSelf from "./DisplayerOfCraftSelf.vue";
 import { computed } from "vue";
 import DisplayerOfShopping from "./DisplayerOfShopping.vue";
 import { ComputedRef } from "vue";
+import DisplayerOfManufactureSelf from "./DisplayerOfManufactureSelf.vue";
 
 const craftBaseItem: Ref<boolean> = ref(false);
 const doEnchanting: Ref<boolean> = ref(false);
+
 const craftingType: ComputedRef<crafterTypeEnum> = computed(() => {
   if (craftBaseItem.value && doEnchanting.value) {
     return crafterTypeEnum.forger;

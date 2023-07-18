@@ -27,8 +27,14 @@
           v-model:chosenItemName="selectedBaseItemName"
         />
         <DisplayerOfManufactureSelf
-          v-if="craftingType === crafterTypeEnum.manufacturer"
+          v-if="craftingType === crafterTypeEnum.manufacturer && selectedCrafter === crafterRankEnum.diy"
           v-model:chosenItemName="selectedBaseItemName"
+        />
+        <DisplayerOfManufactureCrafter
+          v-if="craftingType === crafterTypeEnum.manufacturer  && selectedCrafter !== crafterRankEnum.diy"
+          v-model:chosenItemName="selectedBaseItemName"
+          v-model:chosenCrafterRank="selectedCrafter"
+          v-model:chosenCrafterType="craftingType"
         />
 
 
@@ -64,6 +70,7 @@ import { computed } from "vue";
 import DisplayerOfShopping from "./DisplayerOfShopping.vue";
 import { ComputedRef } from "vue";
 import DisplayerOfManufactureSelf from "./DisplayerOfManufactureSelf.vue";
+import DisplayerOfManufactureCrafter from "./DisplayerOfManufactureCrafter.vue";
 
 const craftBaseItem: Ref<boolean> = ref(false);
 const doEnchanting: Ref<boolean> = ref(false);

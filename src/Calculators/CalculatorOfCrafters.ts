@@ -14,7 +14,7 @@ export function getCrafterStatsForDisplay(crafterRank: crafterRankEnum, crafterT
     throw "Crafter Calculator called for self crafting. Use CalculatorOfCraftSelf for that."
   }
 
-  if(crafterType == crafterTypeEnum.none){
+  if(crafterType == crafterTypeEnum.shopping){
     return{
       name: "At this point, you\'re shopping",
       speed: '',

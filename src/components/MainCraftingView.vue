@@ -24,7 +24,14 @@
     </v-row>
     <v-row align="start" justify="center">
       <v-col>
-        <DisplayerOfCraftSelf
+        <DisplayerOfShopping
+          v-if="craftingType === crafterTypeEnum.shopping"
+          v-model:chosenItemName="selectedBaseItemName"
+        />
+
+
+
+        <!-- <DisplayerOfCraftSelf
           v-if="selectedCrafter === crafterRankEnum.diy"
           v-model:chosenItemName="selectedBaseItemName"
         />
@@ -38,7 +45,7 @@
         <DisplayerOfCraftingOffer
           v-model:chosenCrafter="selectedCrafter"
           v-model:chosenItemName="selectedBaseItemName"
-        />
+        /> -->
       </v-col>
     </v-row>
   </v-container>
@@ -56,23 +63,23 @@ import {
   crafterTypeEnum,
 } from "@/DataRepositoriesAndModels/crafterChoices";
 import DisplayerOfCraftSelf from "./DisplayerOfCraftSelf.vue";
-import { ComputedRef } from "vue";
 import { computed } from "vue";
+import DisplayerOfShopping from "./DisplayerOfShopping.vue";
+import { ComputedRef } from "vue";
 
 const craftBaseItem: Ref<boolean> = ref(false);
 const doEnchanting: Ref<boolean> = ref(false);
-const craftingType = computed(() => {
+const craftingType: ComputedRef<crafterTypeEnum> = computed(() => {
   if (craftBaseItem.value && doEnchanting.value) {
-    return crafterTypeEnum.forger.toString();
+    return crafterTypeEnum.forger;
   }
   if (!craftBaseItem.value && doEnchanting.value) {
-    return crafterTypeEnum.enchanter.toString();
+    return crafterTypeEnum.enchanter;
   }
   if (craftBaseItem.value && !doEnchanting.value) {
-    return crafterTypeEnum.manufacturer.toString();
+    return crafterTypeEnum.manufacturer;
   }
-
-  return crafterTypeEnum.none.toString();
+  return crafterTypeEnum.shopping;
 });
 
 const selectedBaseItemName: Ref<string | undefined> = ref();

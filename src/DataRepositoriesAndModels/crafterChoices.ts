@@ -15,7 +15,7 @@ export function crafterTypeValidator(value: string) {
 }
 
 export enum crafterTypeEnum {
-  none = '',
+  shopping = 'shopping',
   manufacturer = 'manufacturer',
   enchanter = 'enchanter',
   forger = 'forger'

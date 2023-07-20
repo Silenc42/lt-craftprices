@@ -53,6 +53,17 @@
           v-model:chosenRarity="itemRarity"
           v-model:chosenAttunement="selectedAttunement"
         />
+        <DisplayerOfEnchantCrafter
+          v-if="
+            craftingType === crafterTypeEnum.enchanter &&
+            selectedCrafter !== crafterRankEnum.diy
+          "
+          v-model:chosenBaseItemName="selectedBaseItemName"
+          v-model:chosenRarity="itemRarity"
+          v-model:chosenAttunement="selectedAttunement"
+          v-model:chosenCrafterRank="selectedCrafter"
+          v-model:chosenCrafterType="craftingType"
+        />
       </v-col>
     </v-row>
   </v-container>
@@ -75,6 +86,7 @@ import DisplayerOfManufactureSelf from "./DisplayerOfManufactureSelf.vue";
 import DisplayerOfManufactureCrafter from "./DisplayerOfManufactureCrafter.vue";
 import { attunementEnum } from "@/DataRepositoriesAndModels/attunementEnum";
 import DisplayerOfEnchantSelf from "./DisplayerOfEnchantSelf.vue";
+import DisplayerOfEnchantCrafter from "./DisplayerOfEnchantCrafter.vue";
 
 const craftBaseItem: Ref<boolean> = ref(false);
 const doEnchanting: Ref<boolean> = ref(false);

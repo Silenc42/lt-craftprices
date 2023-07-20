@@ -10,6 +10,7 @@ import {
   crafterRankEnum,
   crafterTypeEnum,
 } from "@/DataRepositoriesAndModels/crafterChoices";
+import { roundForDisplay } from "./Helpers";
 
 export interface manufactureCrafterDisplayModel {
   baseItemName: string;
@@ -42,29 +43,19 @@ export function getManufactureCrafterForDisplay(
 
   const item: baseItem = baseItemByName(itemName);
   const crafter: crafterStats = getCrafterStats(crafterRank, crafterType);
+
+  const craftingTime: number = item.timeInHours / crafter.speedFactor;
+  const craftingCost: number = crafter.hourlyRate * craftingTime;
+  const totalCraftingCost: number = item.materialCost + craftingCost;
+
   return {
     baseItemName: item.itemName,
     materialCost: item.materialCost.toString() + " gp",
     dc: item.dc,
-    craftingTimeInHours:
-      roundForDisplay(craftingTime(item, crafter)) + " hours",
-    crafterCost: roundForDisplay(craftingCost(item, crafter)) + " gp",
-    totalCost: roundForDisplay(totalCraftingCost(item, crafter)) + " gp",
+    craftingTimeInHours: roundForDisplay(craftingTime) + " hours",
+    crafterCost: roundForDisplay(craftingCost) + " gp",
+    totalCost: roundForDisplay(totalCraftingCost) + " gp",
     hourlyRate: crafter.hourlyRate + " gp / hour",
     modifier: "+" + crafter.modifier,
   };
-}
-
-function craftingTime(item: baseItem, crafter: crafterStats): number {
-  return item.timeInHours / crafter.speedFactor;
-}
-function craftingCost(item: baseItem, crafter: crafterStats): number {
-  return crafter.hourlyRate * craftingTime(item, crafter);
-}
-function totalCraftingCost(item: baseItem, crafter: crafterStats): number {
-  return item.materialCost + craftingCost(item, crafter);
-}
-
-function roundForDisplay(x: number): number {
-  return Math.round(x * 100) / 100;
 }

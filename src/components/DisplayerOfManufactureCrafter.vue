@@ -4,7 +4,7 @@
   <v-container>
     <v-row>
       <v-col> Item Name: </v-col>
-      <v-col> {{ displayModel.baseItemName }} </v-col>
+      <v-col> {{ displayModel.itemDisplayName }} </v-col>
     </v-row>
   </v-container>
   <hr />
@@ -14,8 +14,8 @@
       <v-col> {{ displayModel.totalCost }} </v-col>
     </v-row>
     <v-row>
-      <v-col> Crafting DC: </v-col>
-      <v-col> {{ displayModel.dc }} </v-col>
+      <v-col> Manufacturing DC: </v-col>
+      <v-col> {{ displayModel.manufacturingDC }} </v-col>
     </v-row>
     <v-row>
       <v-col> Crafter's Modifier: </v-col>
@@ -31,7 +31,7 @@
       <v-col> {{ displayModel.materialCost }} </v-col>
     </v-row>
     <v-row>
-      <v-col> Crafting time: </v-col>
+      <v-col> Manufacturing time: </v-col>
       <v-col> {{ displayModel.craftingTimeInHours }} </v-col>
     </v-row>
     <v-row>

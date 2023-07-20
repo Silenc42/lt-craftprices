@@ -3,7 +3,7 @@
   <v-container>
     <v-row>
       <v-col> Item: </v-col>
-      <v-col> {{ displayModel.baseItemName }} </v-col>
+      <v-col> {{ displayModel.itemDisplayName }} </v-col>
     </v-row>
     <v-row>
       <v-col> Crafting time: </v-col>
@@ -15,7 +15,7 @@
     </v-row>
     <v-row>
       <v-col> Enchanting DC: </v-col>
-      <v-col> {{ displayModel.dc }} </v-col>
+      <v-col> {{ displayModel.enchantingDC }} </v-col>
     </v-row>
     <v-row>
       <v-col> Appliccable Skills: </v-col>

@@ -10,16 +10,24 @@ import {
   crafterRankEnum,
   crafterTypeEnum,
 } from "@/DataRepositoriesAndModels/crafterChoices";
-import { roundForDisplay } from "./Helpers";
+import {
+  noItemNamePlaceholder,
+  nothingToDisplayPlaceholder,
+  toDCText,
+  toGpPerHourText,
+  toGpText,
+  toHourText,
+  toModifierText,
+} from "./DisplayHelpers";
 
 export interface manufactureCrafterDisplayModel {
-  baseItemName: string;
+  itemDisplayName: string;
   craftingTimeInHours: string;
   materialCost: string;
   crafterCost: string;
   totalCost: string;
   hourlyRate: string;
-  dc: string;
+  manufacturingDC: string;
   modifier: string;
 }
 
@@ -30,32 +38,33 @@ export function getManufactureCrafterForDisplay(
 ): manufactureCrafterDisplayModel {
   if (!itemName) {
     return {
-      baseItemName: "Please, select an item",
-      craftingTimeInHours: "--",
-      materialCost: "--",
-      dc: "--",
-      crafterCost: "--",
-      hourlyRate: "--",
-      totalCost: "--",
-      modifier: "--",
+      itemDisplayName: noItemNamePlaceholder,
+      craftingTimeInHours: nothingToDisplayPlaceholder,
+      materialCost: nothingToDisplayPlaceholder,
+      manufacturingDC: nothingToDisplayPlaceholder,
+      crafterCost: nothingToDisplayPlaceholder,
+      hourlyRate: nothingToDisplayPlaceholder,
+      totalCost: nothingToDisplayPlaceholder,
+      modifier: nothingToDisplayPlaceholder,
     };
   }
 
   const item: baseItem = baseItemByName(itemName);
   const crafter: crafterStats = getCrafterStats(crafterRank, crafterType);
 
-  const craftingTime: number = item.timeInHours / crafter.speedFactor;
+  const craftingTime: number =
+    item.manufacturingTimeInHours / crafter.speedFactor;
   const craftingCost: number = crafter.hourlyRate * craftingTime;
   const totalCraftingCost: number = item.materialCost + craftingCost;
 
   return {
-    baseItemName: item.itemName,
-    materialCost: item.materialCost.toString() + " gp",
-    dc: item.dc,
-    craftingTimeInHours: roundForDisplay(craftingTime) + " hours",
-    crafterCost: roundForDisplay(craftingCost) + " gp",
-    totalCost: roundForDisplay(totalCraftingCost) + " gp",
-    hourlyRate: crafter.hourlyRate + " gp / hour",
-    modifier: "+" + crafter.modifier,
+    itemDisplayName: item.itemName,
+    materialCost: toGpText(item.materialCost),
+    manufacturingDC: toDCText(item.manufacturingDC),
+    craftingTimeInHours: toHourText(craftingTime),
+    crafterCost: toGpText(craftingCost),
+    totalCost: toGpText(totalCraftingCost),
+    hourlyRate: toGpPerHourText(crafter.hourlyRate),
+    modifier: toModifierText(crafter.modifier),
   };
 }

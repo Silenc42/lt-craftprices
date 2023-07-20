@@ -15,9 +15,16 @@ export function toGpPerHourText(n: number | undefined): string {
 export function toModifierText(n: number | undefined): string {
   return n ? "+" + roundForDisplay(n) : "";
 }
+export function toDCText(n: number | undefined): string {
+  return n?.toString() ?? "";
+}
 export function roundAndAppendOrDefault(
   n: number | undefined,
   s: string
 ): string {
   return n ? roundForDisplay(n) + " " + s : "";
 }
+
+
+export const noItemNamePlaceholder: string = "Please, select an item!";
+export const nothingToDisplayPlaceholder: string = "--";

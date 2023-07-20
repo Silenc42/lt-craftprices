@@ -16,20 +16,21 @@ import {
   crafterTypeEnum,
 } from "@/DataRepositoriesAndModels/crafterChoices";
 import {
+  toDCText,
   toGpPerHourText,
   toGpText,
   toHourText,
   toModifierText,
-} from "./Helpers";
+} from "./DisplayHelpers";
 
 export interface enchantCrafterDisplayModel {
-  baseItemName: string;
+  itemDisplayName: string;
   baseItemCost: string;
   craftingTimeInHours: string;
   crafterCost: string;
   totalCost: string;
   hourlyRate: string;
-  dc: string;
+  enchantingDC: string;
   modifier: string;
 }
 
@@ -40,7 +41,6 @@ export function getEnchantCrafterDisplay(
   crafterRank: crafterRankEnum,
   crafterType: crafterTypeEnum
 ): enchantCrafterDisplayModel {
-  // load data
   const crafter: crafterStats = getCrafterStats(crafterRank, crafterType);
   const baseItemData: baseItem | undefined = baseItemName
     ? baseItemByName(baseItemName)
@@ -60,10 +60,14 @@ export function getEnchantCrafterDisplay(
   } = calcCraftingCosts(essenceData, attunement, crafter, baseItemData);
 
   return {
-    baseItemName: calcItemDisplayName(attunement, chosenRarity, baseItemData),
+    itemDisplayName: calcItemDisplayName(
+      attunement,
+      chosenRarity,
+      baseItemData
+    ),
     baseItemCost: toGpText(baseItemData?.itemValue),
     craftingTimeInHours: toHourText(actualCraftingTime),
-    dc: toGpText(essenceData?.enchantingDC),
+    enchantingDC: toDCText(essenceData?.enchantingDC),
     crafterCost: toGpText(crafterCost),
     totalCost: toGpText(totalCost),
     hourlyRate: toGpPerHourText(crafter.hourlyRate),
@@ -76,7 +80,11 @@ function calcCraftingCosts(
   attunement: attunementEnum,
   crafter: crafterStats,
   baseItemData: baseItem | undefined
-) {
+): {
+  actualCraftingTime: number | undefined;
+  crafterCost: number | undefined;
+  totalCost: number | undefined;
+} {
   const baseCraftingTime: number | undefined = essenceData
     ? calcBaseCraftingTime(attunement, essenceData)
     : undefined;
@@ -96,7 +104,7 @@ function calcCraftingCosts(
 function calcBaseCraftingTime(
   attunement: attunementEnum,
   essenceData: essence
-) {
+): number {
   switch (attunement) {
     case attunementEnum.consumable:
       return essenceData.enchantingTimeConsumable;
@@ -113,7 +121,7 @@ function calcItemDisplayName(
   attunement: attunementEnum,
   chosenRarity: string | undefined,
   baseItemData: baseItem | undefined
-) {
+): string {
   const rarityText: string = chosenRarity ? chosenRarity + " " : " ";
   const itemTypeText: string = baseItemData?.itemName ?? "Item";
 

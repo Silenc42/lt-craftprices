@@ -1,36 +1,56 @@
-import {baseItem, baseItemByName} from "@/DataRepositoriesAndModels/RepoOfBaseItems";
-import {craftingToolStats, getCraftingTool} from "@/DataRepositoriesAndModels/RepoOfCraftingTools";
+import {
+  baseItem,
+  baseItemByName,
+} from "@/DataRepositoriesAndModels/RepoOfBaseItems";
+import {
+  craftingToolStats,
+  getCraftingTool,
+} from "@/DataRepositoriesAndModels/RepoOfCraftingTools";
+import {
+  noItemNamePlaceholder,
+  nothingToDisplayPlaceholder,
+  toDCText,
+  toGpText,
+  toHourText,
+} from "./DisplayHelpers";
 
 export interface manufactureSelfDisplayModel {
-  baseItemName: string;
+  itemDisplayName: string;
   timeInHours: string;
   materialCost: string;
-  dc: string;
+  manufacturingDC: string;
   toolChoices: string[];
 }
 
-export function getManufactureSelfToolsForDisplay(itemName: string): manufactureSelfDisplayModel {
+export function getManufactureSelfToolsForDisplay(
+  itemName: string
+): manufactureSelfDisplayModel {
   if (!itemName) {
     return {
-      baseItemName:"",
-      timeInHours: "",
-      materialCost:"",
-      dc: "",
-      toolChoices: []
-    }
+      itemDisplayName: noItemNamePlaceholder,
+      timeInHours: nothingToDisplayPlaceholder,
+      materialCost: nothingToDisplayPlaceholder,
+      manufacturingDC: nothingToDisplayPlaceholder,
+      toolChoices: [],
+    };
   }
 
   const item: baseItem = baseItemByName(itemName);
   return {
-    baseItemName: item.itemName,
-    timeInHours: item.timeInHours.toString() + " hours",
-    materialCost: item.materialCost.toString() + " gp",
-    dc: item.dc,
-    toolChoices: item.tools.flatMap((t) => {
-      const toolDetails: craftingToolStats = getCraftingTool(t);
-      return toolDetails.abilities.map(
-        (a) => a + "(" + toolDetails.toolName + ")"
-      );
-    }),
+    itemDisplayName: item.itemName,
+    timeInHours: toHourText(item.manufacturingTimeInHours),
+    materialCost: toGpText(item.materialCost),
+    manufacturingDC: toDCText(item.manufacturingDC),
+    toolChoices: calcToolChoices(item),
   };
 }
+
+function calcToolChoices(item: baseItem): string[] {
+  return item.tools.flatMap((t) => {
+    const toolDetails: craftingToolStats = getCraftingTool(t);
+    return toolDetails.abilities.map(
+      (a) => a + "(" + toolDetails.toolName + ")"
+    );
+  });
+}
+

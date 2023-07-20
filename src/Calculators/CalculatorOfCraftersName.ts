@@ -1,6 +1,12 @@
-import { crafterRankEnum, crafterTypeEnum } from "@/DataRepositoriesAndModels/crafterChoices";
+import {
+  crafterRankEnum,
+  crafterTypeEnum,
+} from "@/DataRepositoriesAndModels/crafterChoices";
 
-export function getcrafterNameDisplay(rank: crafterRankEnum, type: crafterTypeEnum): string {
+export function getcrafterNameDisplay(
+  rank: crafterRankEnum,
+  type: crafterTypeEnum
+): string {
   const builder: string[] = [];
   switch (type) {
     case crafterTypeEnum.manufacturer:
@@ -13,20 +19,20 @@ export function getcrafterNameDisplay(rank: crafterRankEnum, type: crafterTypeEn
       builder.push("Forged");
       break;
   }
-  builder.push(" by ");
+  builder.push("by");
   switch (rank) {
     case crafterRankEnum.journeyman:
-      builder.push(" a Journeyman");
+      builder.push("a Journeyman");
       break;
     case crafterRankEnum.expert:
-      builder.push(" an Expert");
+      builder.push("an Expert");
       break;
     case crafterRankEnum.master:
-      builder.push(" a Master");
+      builder.push("a Master");
       break;
     case crafterRankEnum.larseneSimple:
-      builder.push(" L'Arséne Upin");
+      builder.push("L'Arséne Upin");
       break;
   }
-  return builder.join('');
+  return builder.join(" ");
 }

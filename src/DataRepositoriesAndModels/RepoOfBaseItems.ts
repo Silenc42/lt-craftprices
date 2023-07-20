@@ -1,7 +1,7 @@
 export interface baseItem {
   itemName: string;
-  dc: string;
-  timeInHours: number;
+  manufacturingDC: number;
+  manufacturingTimeInHours: number;
   materialCost: number;
   itemValue: number;
   tools: string[];

@@ -12,7 +12,6 @@ export function getCraftingTool(toolId: string): craftingToolStats {
     (tool) => tool.id === toolId
   );
   if (!toolStats) {
-    // console.error('nonexistent crafter stat requested from crafter stats repo');
     throw (
       "nonexistent tool details requested from crafting tools repo: " + toolId
     );

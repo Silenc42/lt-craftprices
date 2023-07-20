@@ -4,7 +4,7 @@
   <v-container>
     <v-row>
       <v-col> Item Name: </v-col>
-      <v-col> {{ displayModel.baseItemName }} </v-col>
+      <v-col> {{ displayModel.itemDisplayName }} </v-col>
     </v-row>
   </v-container>
   <hr />
@@ -14,8 +14,8 @@
       <v-col> {{ displayModel.totalCost }} </v-col>
     </v-row>
     <v-row>
-      <v-col> Crafting DC: </v-col>
-      <v-col> {{ displayModel.dc }} </v-col>
+      <v-col> Enchanting DC: </v-col>
+      <v-col> {{ displayModel.enchantingDC }} </v-col>
     </v-row>
     <v-row>
       <v-col> Enchanter's Modifier: </v-col>

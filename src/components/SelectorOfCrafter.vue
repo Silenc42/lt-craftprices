@@ -9,7 +9,7 @@
     <v-radio label="Journeyman" :value="crafterRankEnum.journeyman" />
     <v-radio label="Expert" :value="crafterRankEnum.expert" />
     <v-radio label="Master" :value="crafterRankEnum.master" />
-    <v-radio label="L'Arséne (simple)" :value="crafterRankEnum.larseneSimple" />
+    <v-radio label="L'Arséne" :value="crafterRankEnum.larseneSimple" />
   </v-radio-group>
 </template>
 

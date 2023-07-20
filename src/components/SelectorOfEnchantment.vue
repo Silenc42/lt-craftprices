@@ -24,13 +24,27 @@
     <v-row>
       <v-col>
         <v-select
-          v-model="rarity"
+          v-model="essence"
           label="Select Rarity"
-          :items="raritiesForSelection"
+          :items="essencesForSelection"
           item-title="rarity"
           return-object
           @update:modelValue="updatedRaritySelection()"
         />
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col>
+        Select Attunement:
+        <v-radio-group
+          inline
+          v-model="attunement"
+          @update:modelValue="updatedAttunementSelection()"
+        >
+          <v-radio label="Consumable" :value="attunementEnum.consumable" />
+          <v-radio label="Non-Attunement" :value="attunementEnum.not" />
+          <v-radio label="Attunement" :value="attunementEnum.attunement" />
+        </v-radio-group>
       </v-col>
     </v-row>
   </v-container>
@@ -43,14 +57,18 @@ import {
   monsterTypes,
   essence,
 } from "@/DataRepositoriesAndModels/RepoOfEnchantings";
-import { computed } from "vue";
+import { attunementEnum } from "@/DataRepositoriesAndModels/attunementEnum";
+import { UnwrapRef, computed } from "vue";
 import { ComputedRef } from "vue";
 import { Ref, ref } from "vue";
 
 const monsterType: Ref<monsterTypes | null> = ref(null);
-const rarity: Ref<essence | null> = ref(null);
+const essence: Ref<essence | null> = ref(null);
 const monsterTypesForSelection: monsterTypes[] = getMonsterTypesList();
-const raritiesForSelection: essence[] = getEssenceTypesList();
+const essencesForSelection: essence[] = getEssenceTypesList();
+const attunement: Ref<UnwrapRef<attunementEnum>> = ref(
+  attunementEnum.consumable
+);
 
 const doEnchanting: Ref<boolean> = ref(false);
 
@@ -58,10 +76,12 @@ defineProps({
   doEnchanting: Boolean,
   selectedMonsterType: String,
   selectedRarity: String,
+  selectedAttunement: String,
 });
 const emit = defineEmits([
   "update:selectedMonsterType",
   "update:selectedRarity",
+  "update:selectedAttunement",
   "update:doEnchanting",
 ]);
 
@@ -69,15 +89,18 @@ function updatedMonsterTypeSelection(): void {
   emit("update:selectedMonsterType", monsterType.value);
 }
 function updatedRaritySelection(): void {
-  emit("update:selectedRarity", rarity.value);
+  emit("update:selectedRarity", essence.value?.rarity);
+}
+function updatedAttunementSelection(): void {
+  emit("update:selectedAttunement", attunement.value);
 }
 function updatedDoEnchanting(): void {
   emit("update:doEnchanting", doEnchanting.value);
-  emit("update:selectedMonsterType", "");
-  emit("update:selectedRarity", "");
 }
 
-const doEnchantingLabel: ComputedRef<string> = computed(() => (doEnchanting.value ? "":"Don't ") + "Enchant Item" );
+const doEnchantingLabel: ComputedRef<string> = computed(
+  () => (doEnchanting.value ? "" : "Don't ") + "Enchant Item"
+);
 </script>
 
 <style scoped></style>

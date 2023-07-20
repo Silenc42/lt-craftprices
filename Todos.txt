@@ -13,3 +13,7 @@
 - L'Arsene (complicated) as crafter option
 -- Uses stats depending on his stats and proficiencies described in Heliana's
 -- requires mapping tools
+
+- Visual queues for what is inactive/irrelevant at the moment
+
+- Layouting for mobile

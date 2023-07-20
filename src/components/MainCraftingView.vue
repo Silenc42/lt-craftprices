@@ -12,6 +12,7 @@
           v-model:do-enchanting="doEnchanting"
           v-model:selected-monster-type="monsterType"
           v-model:selected-rarity="itemRarity"
+          v-model:selected-attunement="selectedAttunement"
         />
       </v-col>
     </v-row>
@@ -35,6 +36,13 @@
           v-model:chosenItemName="selectedBaseItemName"
           v-model:chosenCrafterRank="selectedCrafter"
           v-model:chosenCrafterType="craftingType"
+        />
+        <DisplayerOfEnchantSelf
+          v-if="craftingType === crafterTypeEnum.enchanter && selectedCrafter === crafterRankEnum.diy"
+          v-model:chosenBaseItemName="selectedBaseItemName"
+          v-model:chosenMonsterType="monsterType"
+          v-model:chosenRarity="itemRarity"
+          v-model:chosenAttunement="selectedAttunement"
         />
 
 
@@ -71,6 +79,8 @@ import DisplayerOfShopping from "./DisplayerOfShopping.vue";
 import { ComputedRef } from "vue";
 import DisplayerOfManufactureSelf from "./DisplayerOfManufactureSelf.vue";
 import DisplayerOfManufactureCrafter from "./DisplayerOfManufactureCrafter.vue";
+import { attunementEnum } from "@/DataRepositoriesAndModels/attunementEnum";
+import DisplayerOfEnchantSelf from "./DisplayerOfEnchantSelf.vue";
 
 const craftBaseItem: Ref<boolean> = ref(false);
 const doEnchanting: Ref<boolean> = ref(false);
@@ -93,6 +103,9 @@ const monsterType: Ref<string | undefined> = ref();
 const itemRarity: Ref<string | undefined> = ref();
 const selectedCrafter: Ref<UnwrapRef<crafterRankEnum>> = ref(
   crafterRankEnum.diy
+);
+const selectedAttunement: Ref<UnwrapRef<attunementEnum>> = ref(
+  attunementEnum.consumable
 );
 </script>
 

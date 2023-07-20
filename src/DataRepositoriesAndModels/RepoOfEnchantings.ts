@@ -6,7 +6,7 @@ export interface essence {
   enchantingTimeNonAttunement: number,
   enchantingTimeAttunement: number
 }
-export interface monsterTypes {
+export interface monsterTypes { //todo: de-pluralize
   monsterType: string,
   skill: string
 }
@@ -18,4 +18,19 @@ export function getEssenceTypesList(): essence[] {
 }
 export function getMonsterTypesList(): monsterTypes[] {
   return enchantingsData.monsterTypes;
+}
+
+export function getEssenceDataByRarity(essenceRarity: string): essence {
+  const essenceData = enchantingsData.essences.find(t => t.rarity === essenceRarity);
+  if (!essenceData){
+    throw 'nonexistent essence data requested from enchanting repo: ' + essenceData;
+  }
+  return essenceData;
+}
+export function getMonsterTypesDataByTypeName(monsterTypeName: string): monsterTypes {
+  const monsterTypeData = enchantingsData.monsterTypes.find(t => t.monsterType === monsterTypeName);
+  if (!monsterTypeData){
+    throw 'nonexistent monster type data requested from enchanting repo: ' + monsterTypeName;
+  }
+  return monsterTypeData;
 }

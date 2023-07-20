@@ -32,7 +32,7 @@
 
 <script setup lang="ts">
 import {
-  getManufactureSelfToolsForDisplay,
+  getManufactureSelfDisplay,
   manufactureSelfDisplayModel,
 } from "@/Calculators/CalculatorOfManufactureSelf";
 import { ComputedRef, computed } from "vue";
@@ -41,8 +41,8 @@ const props = defineProps({
   chosenItemName: String,
 });
 
-const displayModel: ComputedRef<manufactureSelfDisplayModel> = computed((_) =>
-  getManufactureSelfToolsForDisplay(props.chosenItemName ?? "")
+const displayModel: ComputedRef<manufactureSelfDisplayModel> = computed(() =>
+  getManufactureSelfDisplay(props.chosenItemName)
 );
 </script>
 

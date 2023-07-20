@@ -22,8 +22,8 @@ export interface manufactureSelfDisplayModel {
   toolChoices: string[];
 }
 
-export function getManufactureSelfToolsForDisplay(
-  itemName: string
+export function getManufactureSelfDisplay(
+  itemName: string | undefined
 ): manufactureSelfDisplayModel {
   if (!itemName) {
     return {
@@ -53,4 +53,3 @@ function calcToolChoices(item: baseItem): string[] {
     );
   });
 }
-

@@ -46,7 +46,7 @@ import {
 
 const categoriesForSelection: string[] = baseItemCategories();
 const selectedCategory: Ref<string | null> = ref(null);
-const itemsForSelection: ComputedRef<baseItem[]> = computed((_) => {
+const itemsForSelection: ComputedRef<baseItem[]> = computed(() => {
   const selCat: string | null = selectedCategory.value;
   if (!selCat) {
     return [];

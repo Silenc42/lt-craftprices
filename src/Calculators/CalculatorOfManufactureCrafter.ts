@@ -31,10 +31,10 @@ export interface manufactureCrafterDisplayModel {
   modifier: string;
 }
 
-export function getManufactureCrafterForDisplay(
+export function getManufactureCrafterDisplay(
   crafterRank: crafterRankEnum,
   crafterType: crafterTypeEnum,
-  itemName: string
+  itemName: string | undefined
 ): manufactureCrafterDisplayModel {
   if (!itemName) {
     return {

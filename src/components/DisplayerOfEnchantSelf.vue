@@ -47,12 +47,12 @@ const props = defineProps({
   },
 });
 
-const displayModel: ComputedRef<enchantSelfDisplayModel> = computed((_) =>
+const displayModel: ComputedRef<enchantSelfDisplayModel> = computed(() =>
   getEnchantSelfDisplay(
     props.chosenBaseItemName,
     props.chosenMonsterType,
     props.chosenRarity,
-    props.chosenAttunement as attunementEnum | undefined
+    props.chosenAttunement as attunementEnum
   )
 );
 </script>

@@ -48,7 +48,7 @@
 <script setup lang="ts">
 import { getcrafterNameDisplay } from "@/Calculators/CalculatorOfCraftersName";
 import {
-  getManufactureCrafterForDisplay,
+  getManufactureCrafterDisplay,
   manufactureCrafterDisplayModel,
 } from "@/Calculators/CalculatorOfManufactureCrafter";
 import {
@@ -76,10 +76,10 @@ const props = defineProps({
 });
 
 const displayModel: ComputedRef<manufactureCrafterDisplayModel> = computed(() =>
-  getManufactureCrafterForDisplay(
+  getManufactureCrafterDisplay(
     props.chosenCrafterRank as crafterRankEnum,
     props.chosenCrafterType as crafterTypeEnum,
-    props.chosenItemName ?? ""
+    props.chosenItemName
   )
 );
 

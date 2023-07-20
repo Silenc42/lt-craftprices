@@ -54,7 +54,7 @@
 import {
   getMonsterTypesList,
   getEssenceTypesList,
-  monsterTypes,
+  monsterType,
   essence,
 } from "@/DataRepositoriesAndModels/RepoOfEnchantings";
 import { attunementEnum } from "@/DataRepositoriesAndModels/attunementEnum";
@@ -62,9 +62,9 @@ import { UnwrapRef, computed } from "vue";
 import { ComputedRef } from "vue";
 import { Ref, ref } from "vue";
 
-const monsterType: Ref<monsterTypes | null> = ref(null);
+const monsterType: Ref<monsterType | null> = ref(null);
 const essence: Ref<essence | null> = ref(null);
-const monsterTypesForSelection: monsterTypes[] = getMonsterTypesList();
+const monsterTypesForSelection: monsterType[] = getMonsterTypesList();
 const essencesForSelection: essence[] = getEssenceTypesList();
 const attunement: Ref<UnwrapRef<attunementEnum>> = ref(
   attunementEnum.consumable

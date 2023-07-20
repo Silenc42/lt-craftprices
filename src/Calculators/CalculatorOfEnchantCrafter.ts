@@ -6,13 +6,21 @@ import {
   crafterStats,
   getCrafterStats,
 } from "@/DataRepositoriesAndModels/RepoOfCrafterStats";
-import { getEssenceDataByRarity } from "@/DataRepositoriesAndModels/RepoOfEnchantings";
+import {
+  essence,
+  getEssenceDataByRarity,
+} from "@/DataRepositoriesAndModels/RepoOfEnchantings";
 import { attunementEnum } from "@/DataRepositoriesAndModels/attunementEnum";
 import {
   crafterRankEnum,
   crafterTypeEnum,
 } from "@/DataRepositoriesAndModels/crafterChoices";
-import { roundForDisplay } from "./Helpers";
+import {
+  toGpPerHourText,
+  toGpText,
+  toHourText,
+  toModifierText,
+} from "./Helpers";
 
 export interface enchantCrafterDisplayModel {
   baseItemName: string;
@@ -32,63 +40,97 @@ export function getEnchantCrafterDisplay(
   crafterRank: crafterRankEnum,
   crafterType: crafterTypeEnum
 ): enchantCrafterDisplayModel {
-  const enchantingDisplayData: enchantCrafterDisplayModel = {
-    baseItemName: "",
-    baseItemCost: "",
-    craftingTimeInHours: "",
-    dc: "",
-
-    crafterCost: "",
-    totalCost: "",
-    hourlyRate: "",
-    modifier: "",
-  };
-
+  // load data
   const crafter: crafterStats = getCrafterStats(crafterRank, crafterType);
-  const baseItemData: baseItem | null = baseItemName? baseItemByName(baseItemName) : null;
+  const baseItemData: baseItem | undefined = baseItemName
+    ? baseItemByName(baseItemName)
+    : undefined;
+  const essenceData: essence | undefined = chosenRarity
+    ? getEssenceDataByRarity(chosenRarity)
+    : undefined;
 
-  enchantingDisplayData.modifier = "+" + crafter.modifier;
-  enchantingDisplayData.hourlyRate = roundForDisplay(crafter.hourlyRate) + " gp / hour";
+  const {
+    actualCraftingTime,
+    crafterCost,
+    totalCost,
+  }: {
+    actualCraftingTime: number | undefined;
+    crafterCost: number | undefined;
+    totalCost: number | undefined;
+  } = calcCraftingCosts(essenceData, attunement, crafter, baseItemData);
 
-  
+  return {
+    baseItemName: calcItemDisplayName(attunement, chosenRarity, baseItemData),
+    baseItemCost: toGpText(baseItemData?.itemValue),
+    craftingTimeInHours: toHourText(actualCraftingTime),
+    dc: toGpText(essenceData?.enchantingDC),
+    crafterCost: toGpText(crafterCost),
+    totalCost: toGpText(totalCost),
+    hourlyRate: toGpPerHourText(crafter.hourlyRate),
+    modifier: toModifierText(crafter.modifier),
+  };
+}
 
-  if (baseItemData) {
-    enchantingDisplayData.baseItemName =
-      (chosenRarity ? chosenRarity : "") + " " + baseItemData.itemName;
-    enchantingDisplayData.baseItemCost = baseItemData.itemValue + " gp";
+function calcCraftingCosts(
+  essenceData: essence | undefined,
+  attunement: attunementEnum,
+  crafter: crafterStats,
+  baseItemData: baseItem | undefined
+) {
+  const baseCraftingTime: number | undefined = essenceData
+    ? calcBaseCraftingTime(attunement, essenceData)
+    : undefined;
+  const actualCraftingTime: number | undefined = baseCraftingTime
+    ? baseCraftingTime / crafter.speedFactor
+    : undefined;
+  const crafterCost: number | undefined = actualCraftingTime
+    ? crafter.hourlyRate * actualCraftingTime
+    : undefined;
+  const totalCost: number | undefined =
+    crafterCost && baseItemData
+      ? crafterCost + baseItemData.itemValue
+      : undefined;
+  return { actualCraftingTime, crafterCost, totalCost };
+}
+
+function calcBaseCraftingTime(
+  attunement: attunementEnum,
+  essenceData: essence
+) {
+  switch (attunement) {
+    case attunementEnum.consumable:
+      return essenceData.enchantingTimeConsumable;
+    case attunementEnum.not:
+      return essenceData.enchantingTimeNonAttunement;
+    case attunementEnum.attunement:
+      return essenceData.enchantingTimeAttunement;
+    default:
+      throw "Impossible choice of attunement";
+  }
+}
+
+function calcItemDisplayName(
+  attunement: attunementEnum,
+  chosenRarity: string | undefined,
+  baseItemData: baseItem | undefined
+) {
+  const rarityText: string = chosenRarity ? chosenRarity + " " : " ";
+  const itemTypeText: string = baseItemData?.itemName ?? "Item";
+
+  let attunementText: string;
+  switch (attunement) {
+    case attunementEnum.consumable:
+      attunementText = " (Consumable)";
+      break;
+    case attunementEnum.not:
+      attunementText = " (Non-Attunement)";
+      break;
+    case attunementEnum.attunement:
+      attunementText = " (Attunement)";
+      break;
+    default:
+      throw "Impossible choice of attunement";
   }
 
-  if (chosenRarity) {
-    const essenceData = getEssenceDataByRarity(chosenRarity);
-    enchantingDisplayData.dc = essenceData.enchantingDC.toString();
-
-    let baseCraftingTime: number;
-    switch (attunement) {
-      case attunementEnum.consumable:
-        baseCraftingTime = essenceData.enchantingTimeConsumable;
-        break;
-      case attunementEnum.not:
-        baseCraftingTime = essenceData.enchantingTimeNonAttunement;
-        break;
-      case attunementEnum.attunement:
-        baseCraftingTime = essenceData.enchantingTimeAttunement;
-        break;
-      default:
-        throw "Impossible choice of attunement";
-    }
-
-    const actualCraftingTime: number = baseCraftingTime / crafter.speedFactor;
-    const crafterCost: number = crafter.hourlyRate * actualCraftingTime;
-
-    enchantingDisplayData.craftingTimeInHours =
-      roundForDisplay(actualCraftingTime) + " hours";
-    enchantingDisplayData.crafterCost = roundForDisplay(crafterCost) + " gp";
-
-    if (baseItemData) {
-      const totalCost: number = crafterCost + baseItemData.itemValue;
-      enchantingDisplayData.totalCost = roundForDisplay(totalCost) + " gp";
-    }
-  }
-
-  return enchantingDisplayData;
+  return rarityText + itemTypeText + attunementText;
 }

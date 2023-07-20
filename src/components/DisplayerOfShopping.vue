@@ -1,5 +1,5 @@
 <template>
-  Shopping for a base items:
+  Shopping for a base item:
   <v-container>
     <v-row>
       <v-col> Item Name: </v-col>

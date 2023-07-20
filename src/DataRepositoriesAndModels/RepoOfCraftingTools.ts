@@ -1,19 +1,21 @@
 export interface craftingToolStats {
-  toolId: string,
-  toolName: string,
-  abilities: string[]
+  toolId: string;
+  toolName: string;
+  abilities: string[];
   //itemTypes: string
 }
 
-import * as craftingToolsData from '@/DataRepositoriesAndModels/DataOfCraftingTools.json'
+import * as craftingToolsData from "@/DataRepositoriesAndModels/DataOfCraftingTools.json";
 
 export function getCraftingTool(toolId: string): craftingToolStats {
-  const toolStats = craftingToolsData
-    .craftingToolsList
-    .find(tool => tool.id === toolId);
-  if(!toolStats){
+  const toolStats = craftingToolsData.craftingToolsList.find(
+    (tool) => tool.id === toolId
+  );
+  if (!toolStats) {
     // console.error('nonexistent crafter stat requested from crafter stats repo');
-    throw 'nonexistent tool details requested from crafting tools repo: ' + toolId;
+    throw (
+      "nonexistent tool details requested from crafting tools repo: " + toolId
+    );
   }
   return {
     toolId: toolStats.id,

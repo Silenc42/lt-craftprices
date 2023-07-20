@@ -28,5 +28,4 @@ function updatedCrafterSelection(): void {
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

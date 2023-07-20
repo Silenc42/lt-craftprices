@@ -1,4 +1,4 @@
-import {crafterRankEnum, crafterTypeEnum} from "@/DataRepositoriesAndModels/crafterChoices";
+import { crafterRankEnum, crafterTypeEnum } from "@/DataRepositoriesAndModels/crafterChoices";
 
 export function getcrafterNameDisplay(rank: crafterRankEnum, type: crafterTypeEnum): string {
   const builder: string[] = [];

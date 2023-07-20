@@ -28,24 +28,31 @@
           v-model:chosenItemName="selectedBaseItemName"
         />
         <DisplayerOfManufactureSelf
-          v-if="craftingType === crafterTypeEnum.manufacturer && selectedCrafter === crafterRankEnum.diy"
+          v-if="
+            craftingType === crafterTypeEnum.manufacturer &&
+            selectedCrafter === crafterRankEnum.diy
+          "
           v-model:chosenItemName="selectedBaseItemName"
         />
         <DisplayerOfManufactureCrafter
-          v-if="craftingType === crafterTypeEnum.manufacturer  && selectedCrafter !== crafterRankEnum.diy"
+          v-if="
+            craftingType === crafterTypeEnum.manufacturer &&
+            selectedCrafter !== crafterRankEnum.diy
+          "
           v-model:chosenItemName="selectedBaseItemName"
           v-model:chosenCrafterRank="selectedCrafter"
           v-model:chosenCrafterType="craftingType"
         />
         <DisplayerOfEnchantSelf
-          v-if="craftingType === crafterTypeEnum.enchanter && selectedCrafter === crafterRankEnum.diy"
+          v-if="
+            craftingType === crafterTypeEnum.enchanter &&
+            selectedCrafter === crafterRankEnum.diy
+          "
           v-model:chosenBaseItemName="selectedBaseItemName"
           v-model:chosenMonsterType="monsterType"
           v-model:chosenRarity="itemRarity"
           v-model:chosenAttunement="selectedAttunement"
         />
-
-
 
         <!-- 
         <DisplayerOfCrafterStats

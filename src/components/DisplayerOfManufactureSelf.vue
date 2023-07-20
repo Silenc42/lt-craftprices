@@ -38,7 +38,7 @@ import {
 import { ComputedRef, computed } from "vue";
 
 const props = defineProps({
-  chosenItemName: String
+  chosenItemName: String,
 });
 
 const displayModel: ComputedRef<manufactureSelfDisplayModel> = computed((_) =>

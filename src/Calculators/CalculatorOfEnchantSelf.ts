@@ -1,4 +1,4 @@
-import {baseItem, baseItemByName} from "@/DataRepositoriesAndModels/RepoOfBaseItems";
+import { baseItem, baseItemByName } from "@/DataRepositoriesAndModels/RepoOfBaseItems";
 import { getEssenceDataByRarity, getMonsterTypesDataByTypeName } from "@/DataRepositoriesAndModels/RepoOfEnchantings";
 import { attunementEnum } from "@/DataRepositoriesAndModels/attunementEnum";
 
@@ -26,13 +26,13 @@ export function getEnchantSelfDisplay(
 
   if (baseItemName) {
     const item: baseItem = baseItemByName(baseItemName);
-    enchantingDisplayData.baseItemName = (chosenRarity? chosenRarity:"") + " " + item.itemName;
+    enchantingDisplayData.baseItemName = (chosenRarity ? chosenRarity : "") + " " + item.itemName;
     enchantingDisplayData.baseItemCost = item.itemValue.toString();
   }
 
   if (chosenMonsterType) {
     const monsterTypeData = getMonsterTypesDataByTypeName(chosenMonsterType);
-    enchantingDisplayData.requiredSkill = "Spellcasting Ability ("+monsterTypeData.skill+")";
+    enchantingDisplayData.requiredSkill = "Spellcasting Ability (" + monsterTypeData.skill + ")";
   }
 
   if (chosenRarity) {
@@ -47,7 +47,7 @@ export function getEnchantSelfDisplay(
         break;
       case attunementEnum.attunement:
         enchantingDisplayData.timeInHours = essenceData.enchantingTimeAttunement + " hours";
-        break;    
+        break;
       default:
         throw "Impossible choice of attunement";
     }

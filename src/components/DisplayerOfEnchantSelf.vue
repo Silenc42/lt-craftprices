@@ -25,8 +25,14 @@
 </template>
 
 <script setup lang="ts">
-import { enchantSelfDisplayModel, getEnchantSelfDisplay } from "@/Calculators/CalculatorOfEnchantSelf";
-import { attunementEnum, attunementValidator } from "@/DataRepositoriesAndModels/attunementEnum";
+import {
+  enchantSelfDisplayModel,
+  getEnchantSelfDisplay,
+} from "@/Calculators/CalculatorOfEnchantSelf";
+import {
+  attunementEnum,
+  attunementValidator,
+} from "@/DataRepositoriesAndModels/attunementEnum";
 import { ComputedRef, computed } from "vue";
 
 const props = defineProps({
@@ -42,13 +48,16 @@ const props = defineProps({
 });
 
 const displayModel: ComputedRef<enchantSelfDisplayModel> = computed((_) =>
-  getEnchantSelfDisplay(props.chosenBaseItemName, props.chosenMonsterType, props.chosenRarity, props.chosenAttunement as attunementEnum | undefined)
+  getEnchantSelfDisplay(
+    props.chosenBaseItemName,
+    props.chosenMonsterType,
+    props.chosenRarity,
+    props.chosenAttunement as attunementEnum | undefined
+  )
 );
 </script>
 
 <style scoped></style>
 
-baseItemName: string,
-chosenMonsterType: string,
-chosenRarity: string,
+baseItemName: string, chosenMonsterType: string, chosenRarity: string,
 attunement: attunementEnum

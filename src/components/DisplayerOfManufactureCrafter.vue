@@ -47,8 +47,16 @@
 
 <script setup lang="ts">
 import { getcrafterNameDisplay } from "@/Calculators/CalculatorOfCraftersName";
-import { getManufactureCrafterForDisplay, manufactureCrafterDisplayModel } from "@/Calculators/CalculatorOfManufactureCrafter";
-import { crafterRankEnum, crafterRankValidator, crafterTypeEnum, crafterTypeValidator } from "@/DataRepositoriesAndModels/crafterChoices";
+import {
+  getManufactureCrafterForDisplay,
+  manufactureCrafterDisplayModel,
+} from "@/Calculators/CalculatorOfManufactureCrafter";
+import {
+  crafterRankEnum,
+  crafterRankValidator,
+  crafterTypeEnum,
+  crafterTypeValidator,
+} from "@/DataRepositoriesAndModels/crafterChoices";
 import { ComputedRef, computed } from "vue";
 
 const props = defineProps({
@@ -62,16 +70,25 @@ const props = defineProps({
     type: String,
     validator(value: string): boolean {
       return crafterTypeValidator(value);
-    }
+    },
   },
   chosenItemName: String,
 });
 
 const displayModel: ComputedRef<manufactureCrafterDisplayModel> = computed(() =>
-  getManufactureCrafterForDisplay(props.chosenCrafterRank as crafterRankEnum, props.chosenCrafterType as crafterTypeEnum, props.chosenItemName ?? "")
+  getManufactureCrafterForDisplay(
+    props.chosenCrafterRank as crafterRankEnum,
+    props.chosenCrafterType as crafterTypeEnum,
+    props.chosenItemName ?? ""
+  )
 );
 
-const crafterName: ComputedRef<string> = computed(() => getcrafterNameDisplay(props.chosenCrafterRank as crafterRankEnum, props.chosenCrafterType as crafterTypeEnum))
+const crafterName: ComputedRef<string> = computed(() =>
+  getcrafterNameDisplay(
+    props.chosenCrafterRank as crafterRankEnum,
+    props.chosenCrafterType as crafterTypeEnum
+  )
+);
 </script>
 
 <style scoped></style>

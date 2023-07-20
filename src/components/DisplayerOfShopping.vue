@@ -17,7 +17,7 @@ import { baseItemByName } from "@/DataRepositoriesAndModels/RepoOfBaseItems";
 import { ComputedRef, computed } from "vue";
 
 const props = defineProps({
-  chosenItemName: String
+  chosenItemName: String,
 });
 
 // This would be the whole of CalculatorOfShopping.ts. Kept direct connection here instead.
@@ -26,8 +26,7 @@ const itemPrice: ComputedRef<string> = computed((_) => {
     return "";
   }
   return baseItemByName(props.chosenItemName).itemValue.toString() + " gp";
-}
-);
+});
 </script>
 
 <style scoped></style>

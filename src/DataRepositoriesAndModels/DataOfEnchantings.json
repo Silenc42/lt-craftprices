@@ -49,7 +49,7 @@
       "enchantingTimeAttunement": 200000
     }
   ],
-  "monsterTypes":[
+  "monsterTypes": [
     {
       "monsterType": "Abberation",
       "skill": "Arcana"

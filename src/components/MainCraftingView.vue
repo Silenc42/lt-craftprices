@@ -64,6 +64,11 @@
           v-model:chosenCrafterRank="selectedCrafter"
           v-model:chosenCrafterType="craftingType"
         />
+        <DisplayerOfForgingSelf
+          v-if="
+            craftingType === crafterTypeEnum.forger
+          "
+        />
       </v-col>
     </v-row>
   </v-container>
@@ -78,13 +83,13 @@ import {
   crafterRankEnum,
   crafterTypeEnum,
 } from "@/DataRepositoriesAndModels/crafterChoices";
-import DisplayerOfCraftSelf from "./DisplayerOfCraftSelf.vue";
 import { computed } from "vue";
 import DisplayerOfShopping from "./DisplayerOfShopping.vue";
 import { ComputedRef } from "vue";
 import DisplayerOfManufactureSelf from "./DisplayerOfManufactureSelf.vue";
 import DisplayerOfManufactureCrafter from "./DisplayerOfManufactureCrafter.vue";
 import { attunementEnum } from "@/DataRepositoriesAndModels/attunementEnum";
+import DisplayerOfForgingSelf from "./DisplayerOfForgingSelf.vue";
 import DisplayerOfEnchantSelf from "./DisplayerOfEnchantSelf.vue";
 import DisplayerOfEnchantCrafter from "./DisplayerOfEnchantCrafter.vue";
 

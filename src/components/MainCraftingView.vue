@@ -53,19 +53,6 @@
           v-model:chosenRarity="itemRarity"
           v-model:chosenAttunement="selectedAttunement"
         />
-
-        <!-- 
-        <DisplayerOfCrafterStats
-          v-else
-          v-model:chosenCrafterRank="selectedCrafter"
-          v-model:chosenCrafterType="craftingType"
-        />
-      </v-col>
-      <v-col>
-        <DisplayerOfCraftingOffer
-          v-model:chosenCrafter="selectedCrafter"
-          v-model:chosenItemName="selectedBaseItemName"
-        /> -->
       </v-col>
     </v-row>
   </v-container>

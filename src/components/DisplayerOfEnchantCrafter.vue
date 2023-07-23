@@ -47,8 +47,14 @@
 
 <script setup lang="ts">
 import { getcrafterNameDisplay } from "@/Calculators/CalculatorOfCraftersName";
-import { enchantCrafterDisplayModel, getEnchantCrafterDisplay } from "@/Calculators/CalculatorOfEnchantCrafter";
-import { attunementEnum, attunementValidator } from "@/DataRepositoriesAndModels/attunementEnum";
+import {
+  enchantCrafterDisplayModel,
+  getEnchantCrafterDisplay,
+} from "@/Calculators/CalculatorOfEnchantCrafter";
+import {
+  attunementEnum,
+  attunementValidator,
+} from "@/DataRepositoriesAndModels/attunementEnum";
 import {
   crafterRankEnum,
   crafterRankValidator,
@@ -58,26 +64,11 @@ import {
 import { ComputedRef, computed } from "vue";
 
 const props = defineProps({
-  chosenCrafterRank: {
-    type: String,
-    validator(value: string): boolean {
-      return crafterRankValidator(value);
-    },
-  },
-  chosenCrafterType: {
-    type: String,
-    validator(value: string): boolean {
-      return crafterTypeValidator(value);
-    },
-  },
+  chosenCrafterRank: { type: String, crafterRankValidator },
+  chosenCrafterType: { type: String, crafterTypeValidator },
   chosenBaseItemName: String,
   chosenRarity: String,
-  chosenAttunement: {
-    type: String,
-    validator(value: string): boolean {
-      return attunementValidator(value);
-    },
-  },
+  chosenAttunement: { type: String, attunementValidator },
 });
 
 const displayModel: ComputedRef<enchantCrafterDisplayModel> = computed(() =>
@@ -86,7 +77,7 @@ const displayModel: ComputedRef<enchantCrafterDisplayModel> = computed(() =>
     props.chosenRarity,
     props.chosenAttunement as attunementEnum,
     props.chosenCrafterRank as crafterRankEnum,
-    props.chosenCrafterType as crafterTypeEnum,
+    props.chosenCrafterType as crafterTypeEnum
   )
 );
 

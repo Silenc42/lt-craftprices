@@ -39,12 +39,7 @@ const props = defineProps({
   chosenBaseItemName: String,
   chosenMonsterType: String,
   chosenRarity: String,
-  chosenAttunement: {
-    type: String,
-    validator(value: string): boolean {
-      return attunementValidator(value);
-    },
-  },
+  chosenAttunement: { type: String, attunementValidator },
 });
 
 const displayModel: ComputedRef<enchantSelfDisplayModel> = computed(() =>
@@ -58,6 +53,3 @@ const displayModel: ComputedRef<enchantSelfDisplayModel> = computed(() =>
 </script>
 
 <style scoped></style>
-
-baseItemName: string, chosenMonsterType: string, chosenRarity: string,
-attunement: attunementEnum

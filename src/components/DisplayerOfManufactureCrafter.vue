@@ -60,18 +60,8 @@ import {
 import { ComputedRef, computed } from "vue";
 
 const props = defineProps({
-  chosenCrafterRank: {
-    type: String,
-    validator(value: string): boolean {
-      return crafterRankValidator(value);
-    },
-  },
-  chosenCrafterType: {
-    type: String,
-    validator(value: string): boolean {
-      return crafterTypeValidator(value);
-    },
-  },
+  chosenCrafterRank: { type: String, crafterRankValidator },
+  chosenCrafterType: { type: String, crafterTypeValidator },
   chosenItemName: String,
 });
 

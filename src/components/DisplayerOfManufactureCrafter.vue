@@ -55,20 +55,17 @@ import {
   crafterRankEnum,
   crafterRankValidator,
   crafterTypeEnum,
-  crafterTypeValidator,
 } from "@/DataRepositoriesAndModels/crafterChoices";
 import { ComputedRef, computed } from "vue";
 
 const props = defineProps({
   chosenCrafterRank: { type: String, crafterRankValidator },
-  chosenCrafterType: { type: String, crafterTypeValidator },
   chosenItemName: String,
 });
 
 const displayModel: ComputedRef<manufactureCrafterDisplayModel> = computed(() =>
   getManufactureCrafterDisplay(
     props.chosenCrafterRank as crafterRankEnum,
-    props.chosenCrafterType as crafterTypeEnum,
     props.chosenItemName
   )
 );
@@ -76,7 +73,7 @@ const displayModel: ComputedRef<manufactureCrafterDisplayModel> = computed(() =>
 const crafterName: ComputedRef<string> = computed(() =>
   getcrafterNameDisplay(
     props.chosenCrafterRank as crafterRankEnum,
-    props.chosenCrafterType as crafterTypeEnum
+    crafterTypeEnum.manufacturer
   )
 );
 </script>

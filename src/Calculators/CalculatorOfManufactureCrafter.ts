@@ -33,7 +33,6 @@ export interface manufactureCrafterDisplayModel {
 
 export function getManufactureCrafterDisplay(
   crafterRank: crafterRankEnum,
-  crafterType: crafterTypeEnum,
   itemName: string | undefined
 ): manufactureCrafterDisplayModel {
   if (!itemName) {
@@ -50,7 +49,7 @@ export function getManufactureCrafterDisplay(
   }
 
   const item: baseItem = baseItemByName(itemName);
-  const crafter: crafterStats = getCrafterStats(crafterRank, crafterType);
+  const crafter: crafterStats = getCrafterStats(crafterRank, crafterTypeEnum.manufacturer);
 
   const craftingTime: number =
     item.manufacturingTimeInHours / crafter.speedFactor;

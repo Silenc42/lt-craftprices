@@ -41,7 +41,6 @@
           "
           v-model:chosenItemName="selectedBaseItemName"
           v-model:chosenCrafterRank="selectedCrafter"
-          v-model:chosenCrafterType="craftingType"
         />
         <DisplayerOfEnchantSelf
           v-if="
@@ -62,7 +61,6 @@
           v-model:chosenRarity="itemRarity"
           v-model:chosenAttunement="selectedAttunement"
           v-model:chosenCrafterRank="selectedCrafter"
-          v-model:chosenCrafterType="craftingType"
         />
         <DisplayerOfForgingSelf
           v-if="

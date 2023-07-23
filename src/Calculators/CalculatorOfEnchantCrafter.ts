@@ -38,10 +38,9 @@ export function getEnchantCrafterDisplay(
   baseItemName: string | undefined,
   chosenRarity: string | undefined,
   attunement: attunementEnum,
-  crafterRank: crafterRankEnum,
-  crafterType: crafterTypeEnum
+  crafterRank: crafterRankEnum
 ): enchantCrafterDisplayModel {
-  const crafter: crafterStats = getCrafterStats(crafterRank, crafterType);
+  const crafter: crafterStats = getCrafterStats(crafterRank, crafterTypeEnum.enchanter);
   const baseItemData: baseItem | undefined = baseItemName
     ? baseItemByName(baseItemName)
     : undefined;

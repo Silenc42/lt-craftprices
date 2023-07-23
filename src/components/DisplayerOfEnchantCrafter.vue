@@ -65,7 +65,6 @@ import { ComputedRef, computed } from "vue";
 
 const props = defineProps({
   chosenCrafterRank: { type: String, crafterRankValidator },
-  chosenCrafterType: { type: String, crafterTypeValidator },
   chosenBaseItemName: String,
   chosenRarity: String,
   chosenAttunement: { type: String, attunementValidator },
@@ -76,15 +75,14 @@ const displayModel: ComputedRef<enchantCrafterDisplayModel> = computed(() =>
     props.chosenBaseItemName,
     props.chosenRarity,
     props.chosenAttunement as attunementEnum,
-    props.chosenCrafterRank as crafterRankEnum,
-    props.chosenCrafterType as crafterTypeEnum
+    props.chosenCrafterRank as crafterRankEnum
   )
 );
 
 const crafterName: ComputedRef<string> = computed(() =>
   getcrafterNameDisplay(
     props.chosenCrafterRank as crafterRankEnum,
-    props.chosenCrafterType as crafterTypeEnum
+    crafterTypeEnum.enchanter
   )
 );
 </script>

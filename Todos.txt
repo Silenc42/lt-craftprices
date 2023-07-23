@@ -1,19 +1,24 @@
-- Enchanting
-
 - Forging
+
+- Selector for shop, manufacture, enchant, forge
+
+-- Visual queues for what is inactive/irrelevant at the moment
+-- OR only show relevant
+
+- Layouting for mobile
+
+- greedy show data for manufacture (as done for manufacture)
 
 - Overtime
 
+- Tests for calculators
+
+(maybe)
 - cooperation between multiple crafters.
 -- Slider to distribute work between two crafters (presumably self and a selected one)
 -- Display Weighted average for checks nicely
-
 
 (maybe)
 - L'Arsene (complicated) as crafter option
 -- Uses stats depending on his stats and proficiencies described in Heliana's
 -- requires mapping tools
-
-- Visual queues for what is inactive/irrelevant at the moment
-
-- Layouting for mobile

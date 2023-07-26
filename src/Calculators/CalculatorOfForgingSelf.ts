@@ -11,26 +11,36 @@ import {
 import { attunementEnum } from "@/DataRepositoriesAndModels/attunementEnum";
 import {
   toDCText,
+  toDisplayList,
   toGpText,
   toHourText,
 } from "./DisplayHelpers";
+import {
+  craftingToolStats,
+  getCraftingTool,
+} from "@/DataRepositoriesAndModels/RepoOfCraftingTools";
 
-export interface enchantSelfDisplayModel {
+export interface forgeSelfDisplayModel {
   itemDisplayName: string;
-  baseItemCost: string;
-  timeInHours: string;
+  baseItemMaterialCost: string;
+  forgingTimeInHours: string;
+  manufacturingDC: string;
+  manufactureCheckChoices: string[];
   enchantingDC: string;
-  requiredSkill: string;
+  enchantingCheckChoices: string[];
 }
-
-export function getEnchantSelfDisplay(
+Next up: display and test
+export function getForgeSelfDisplay(
   baseItemName: string | undefined,
   chosenMonsterType: string | undefined,
   chosenRarity: string | undefined,
   attunement: attunementEnum
-): enchantSelfDisplayModel {
+): forgeSelfDisplayModel {
   const baseItemData: baseItem | undefined = baseItemName
     ? baseItemByName(baseItemName)
+    : undefined;
+  const toolChoices: craftingToolStats[] | undefined = baseItemData
+    ? baseItemData.tools.map((t) => getCraftingTool(t))
     : undefined;
   const essenceData: essence | undefined = chosenRarity
     ? getEssenceDataByRarity(chosenRarity)
@@ -45,22 +55,65 @@ export function getEnchantSelfDisplay(
       chosenRarity,
       baseItemData
     ),
-    baseItemCost: toGpText(baseItemData?.itemValue),
-    timeInHours: toHourText(calcBaseCraftingTime(attunement, essenceData)),
+    baseItemMaterialCost: toGpText(baseItemData?.itemValue),
+    forgingTimeInHours: toHourText(
+      calcCraftingTime(baseItemData, attunement, essenceData)
+    ),
+    manufacturingDC: toDCText(baseItemData?.manufacturingDC),
+    manufactureCheckChoices: toDisplayList(
+      calcManufactureCheckChoices(toolChoices)
+    ),
     enchantingDC: toDCText(essenceData?.enchantingDC),
-    requiredSkill: calcEnchantingSkillDisplay(monsterTypeData),
+    enchantingCheckChoices: toDisplayList(
+      calcEnchantingCheckChoices(toolChoices, monsterTypeData)
+    ),
   };
 }
 
-function calcEnchantingSkillDisplay(
-  monsterTypeData: monsterType | undefined
-): string {
-  return monsterTypeData
-    ? "Spellcasting Ability (" + monsterTypeData.skill + ")"
-    : "Please, select a monster type!";
+function calcManufactureCheckChoices(
+  toolChoices: craftingToolStats[] | undefined
+): string[] | undefined {
+  return toolChoices?.flatMap((t) =>
+    t.abilities.map((a) => a + "(" + t.toolName + ")")
+  );
 }
 
-function calcBaseCraftingTime(
+function calcEnchantingCheckChoices(
+  toolChoices: craftingToolStats[] | undefined,
+  monsterTypeData: monsterType | undefined
+): string[] | undefined {
+  if (!toolChoices || !monsterTypeData) {
+    return undefined;
+  }
+  const listWithDuplicates: string[] = toolChoices
+    ?.flatMap((t) => t.abilities)
+    .map((a) => a + "(" + monsterTypeData.skill + ")");
+  const deduplicatedList: string[] = Array.from(new Set(listWithDuplicates));
+  return deduplicatedList;
+}
+
+function calcCraftingTime(
+  baseItemData: baseItem | undefined,
+  attunement: attunementEnum,
+  essenceData: essence | undefined
+): number | undefined {
+  const manufactureTime: number | undefined =
+    baseItemData?.manufacturingTimeInHours;
+  if (!manufactureTime) {
+    return undefined;
+  }
+  const enchantTime: number | undefined = calcEnchantingTime(
+    attunement,
+    essenceData
+  );
+  if (!enchantTime) {
+    return undefined;
+  }
+
+  return Math.max(manufactureTime, enchantTime);
+}
+
+function calcEnchantingTime(
   attunement: attunementEnum,
   essenceData: essence | undefined
 ): number | undefined {

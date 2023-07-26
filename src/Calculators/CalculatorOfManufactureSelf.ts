@@ -46,10 +46,10 @@ export function getManufactureSelfDisplay(
 }
 
 function calcToolChoices(item: baseItem): string[] {
-  return item.tools.flatMap((t) => {
+  return item.tools.flatMap(t => {
     const toolDetails: craftingToolStats = getCraftingTool(t);
     return toolDetails.abilities.map(
-      (a) => a + "(" + toolDetails.toolName + ")"
+      a => a + "(" + toolDetails.toolName + ")"
     );
   });
 }

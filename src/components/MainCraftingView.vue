@@ -64,7 +64,18 @@
         />
         <DisplayerOfForgingSelf
           v-if="
-            craftingType === crafterTypeEnum.forger
+            craftingType === crafterTypeEnum.forger &&
+            selectedCrafter === crafterRankEnum.diy
+          "
+          v-model:chosenBaseItemName="selectedBaseItemName"
+          v-model:chosenMonsterType="monsterType"
+          v-model:chosenRarity="itemRarity"
+          v-model:chosenAttunement="selectedAttunement"
+        />
+        <DisplayerOfForgingCrafter
+          v-if="
+            craftingType === crafterTypeEnum.forger &&
+            selectedCrafter !== crafterRankEnum.diy
           "
         />
       </v-col>
@@ -88,6 +99,7 @@ import DisplayerOfManufactureSelf from "./DisplayerOfManufactureSelf.vue";
 import DisplayerOfManufactureCrafter from "./DisplayerOfManufactureCrafter.vue";
 import { attunementEnum } from "@/DataRepositoriesAndModels/attunementEnum";
 import DisplayerOfForgingSelf from "./DisplayerOfForgingSelf.vue";
+import DisplayerOfForgingCrafter from "./DisplayerOfForgingCrafter.vue";
 import DisplayerOfEnchantSelf from "./DisplayerOfEnchantSelf.vue";
 import DisplayerOfEnchantCrafter from "./DisplayerOfEnchantCrafter.vue";
 

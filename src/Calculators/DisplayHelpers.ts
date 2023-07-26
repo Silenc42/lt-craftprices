@@ -24,7 +24,9 @@ export function roundAndAppendOrDefault(
 ): string {
   return n ? roundForDisplay(n) + " " + s : "";
 }
-
+export function toDisplayList(list: string[] | undefined): string[] {
+  return list ?? [];
+}
 
 export const noItemNamePlaceholder: string = "Please, select an item!";
 export const nothingToDisplayPlaceholder: string = "--";

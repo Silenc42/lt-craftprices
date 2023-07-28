@@ -110,7 +110,7 @@
       ]
     },
     {
-      "categoryName": "Simple Weapon",
+      "categoryName": "Simple Melee Weapon",
       "items": [
         {
           "tools": ["smith"],
@@ -135,18 +135,167 @@
           "manufacturingTimeInHours": 1,
           "materialCost": 0.7,
           "itemValue": 2
+        },
+        {
+          "itemName": "Greatclub",
+          "materialCost": 0.7,
+          "tools": ["carp"],
+          "manufacturingTimeInHours": 0.5,
+          "manufacturingDC": 14,
+          "itemValue": 0.2
+        },
+        {
+          "itemName": "Handaxe",
+          "materialCost": 2,
+          "tools": ["smith"],
+          "manufacturingTimeInHours": 3,
+          "manufacturingDC": 14,
+          "itemValue": 5
+        },
+        {
+          "itemName": "Javelin",
+          "materialCost": 0.3,
+          "tools": ["carp", "smith", "wood"],
+          "manufacturingTimeInHours": 1,
+          "manufacturingDC": 14,
+          "itemValue": 1
+        },
+        {
+          "itemName": "Knuckle duster",
+          "materialCost": 0.3,
+          "tools": ["smith"],
+          "manufacturingTimeInHours": 1,
+          "manufacturingDC": 14,
+          "itemValue": 1
+        },
+        {
+          "itemName": "Light hammer",
+          "materialCost": 0.7,
+          "tools": ["mason", "smith"],
+          "manufacturingTimeInHours": 1,
+          "manufacturingDC": 14,
+          "itemValue": 2
+        },
+        {
+          "itemName": "Mace",
+          "materialCost": 2,
+          "tools": ["mason", "smith"],
+          "manufacturingTimeInHours": 3,
+          "manufacturingDC": 14,
+          "itemValue": 5
+        },
+        {
+          "itemName": "Quarterstaff",
+          "materialCost": 0.2,
+          "tools": ["carp", "smith", "wood"],
+          "manufacturingTimeInHours": 0.5,
+          "manufacturingDC": 14,
+          "itemValue": 0.5
+        },
+        {
+          "itemName": "Sickle",
+          "materialCost": 0.3,
+          "tools": ["smith"],
+          "manufacturingTimeInHours": 1,
+          "manufacturingDC": 14,
+          "itemValue": 1
+        },
+        {
+          "itemName": "Spear",
+          "materialCost": 0.3,
+          "tools": ["carp", "smith", "wood"],
+          "manufacturingTimeInHours": 1,
+          "manufacturingDC": 14,
+          "itemValue": 1
+        },
+        {
+          "itemName": "Spiked cestus",
+          "materialCost": 1,
+          "tools": ["smith"],
+          "manufacturingTimeInHours": 2,
+          "manufacturingDC": 14,
+          "itemValue": 3
+        },
+        {
+          "itemName": "Spiked knuckle duster",
+          "materialCost": 0.6,
+          "tools": ["smith"],
+          "manufacturingTimeInHours": 2,
+          "manufacturingDC": 14,
+          "itemValue": 2
+        },
+        {
+          "itemName": "War crescent",
+          "materialCost": 2,
+          "tools": ["smith"],
+          "manufacturingTimeInHours": 4,
+          "manufacturingDC": 14,
+          "itemValue": 6
         }
       ]
     },
     {
-      "categoryName": "Martial Weapon",
+      "categoryName": "Simple Ranged Weapon",
       "items": [
         {
-          "tools": ["smith"],
+          "itemName": "Crossbow, light",
+          "tools": ["tinker"],
+          "materialCost": 8,
+          "manufacturingTimeInHours": 12,
+          "manufacturingDC": 14,
+          "itemValue": 25
+        },
+        {
+          "itemName": "Dart (x20)",
+          "tools": ["carp", "wood"],
+          "materialCost": 0.03,
+          "manufacturingTimeInHours": 1,
+          "manufacturingDC": 14,
+          "itemValue": 1
+        },
+        {
+          "itemName": "Shortbow",
+          "tools": ["carp", "wood"],
+          "materialCost": 8,
+          "manufacturingTimeInHours": 12,
+          "manufacturingDC": 14,
+          "itemValue": 25
+        },
+        {
+          "itemName": "Sling",
+          "tools": ["weaver", "leather"],
+          "materialCost": 0.03,
+          "manufacturingTimeInHours": 0.25,
+          "manufacturingDC": 14,
+          "itemValue": 0.1
+        },
+        {
+          "itemName": "Slingshot",
+          "tools": ["carp", "wood"],
+          "materialCost": 0.07,
+          "manufacturingTimeInHours": 0.5,
+          "manufacturingDC": 14,
+          "itemValue": 0.2
+        }
+      ]
+    },
+    {
+      "categoryName": "Martial Melee Weapon",
+      "items": [
+        {
           "itemName": "Battleaxe",
-          "manufacturingDC": 17,
-          "manufacturingTimeInHours": 6,
           "materialCost": 3,
+          "tools": ["smith"],
+          "manufacturingTimeInHours": 6,
+          "manufacturingDC": 17,
+          "itemValue": 10
+        },
+        {
+          "itemName": "Chakram",
+          "materialCost": 3,
+          "tools": ["smith"],
+          "manufacturingTimeInHours": 6,
+          "manufacturingDC": 17,
           "itemValue": 10
         },
         {
@@ -164,6 +313,203 @@
           "manufacturingTimeInHours": 12,
           "materialCost": 7,
           "itemValue": 20
+        },
+        {
+          "itemName": "Greataxe",
+          "materialCost": 10,
+          "tools": ["smith"],
+          "manufacturingTimeInHours": 18,
+          "manufacturingDC": 17,
+          "itemValue": 30
+        },
+        {
+          "itemName": "Greatsword",
+          "materialCost": 17,
+          "tools": ["smith"],
+          "manufacturingTimeInHours": 24,
+          "manufacturingDC": 17,
+          "itemValue": 50
+        },
+        {
+          "itemName": "Halberd",
+          "materialCost": 7,
+          "tools": ["carp", "smith", "wood"],
+          "manufacturingTimeInHours": 12,
+          "manufacturingDC": 17,
+          "itemValue": 20
+        },
+        {
+          "itemName": "Lance",
+          "materialCost": 3,
+          "tools": ["carp", "smith", "wood"],
+          "manufacturingTimeInHours": 6,
+          "manufacturingDC": 17,
+          "itemValue": 10
+        },
+        {
+          "itemName": "Longsword",
+          "materialCost": 5,
+          "tools": ["smith"],
+          "manufacturingTimeInHours": 8,
+          "manufacturingDC": 17,
+          "itemValue": 15
+        },
+        {
+          "itemName": "Maul",
+          "materialCost": 3,
+          "tools": ["mason", "smith"],
+          "manufacturingTimeInHours": 6,
+          "manufacturingDC": 17,
+          "itemValue": 10
+        },
+        {
+          "itemName": "Morningstar",
+          "materialCost": 3,
+          "tools": ["smith"],
+          "manufacturingTimeInHours": 6,
+          "manufacturingDC": 17,
+          "itemValue": 10
+        },
+        {
+          "itemName": "Nunchaku",
+          "materialCost": 3,
+          "tools": ["carp", "smith", "wood"],
+          "manufacturingTimeInHours": 6,
+          "manufacturingDC": 17,
+          "itemValue": 10
+        },
+        {
+          "itemName": "Pike",
+          "materialCost": 3,
+          "tools": ["carp", "smith", "wood"],
+          "manufacturingTimeInHours": 6,
+          "manufacturingDC": 17,
+          "itemValue": 10
+        },
+        {
+          "itemName": "Rapier",
+          "materialCost": 8,
+          "tools": ["smith"],
+          "manufacturingTimeInHours": 12,
+          "manufacturingDC": 17,
+          "itemValue": 25
+        },
+        {
+          "itemName": "Scimitar",
+          "materialCost": 3,
+          "tools": ["smith"],
+          "manufacturingTimeInHours": 6,
+          "manufacturingDC": 17,
+          "itemValue": 10
+        },
+        {
+          "itemName": "Shortsword",
+          "materialCost": 3,
+          "tools": ["smith"],
+          "manufacturingTimeInHours": 6,
+          "manufacturingDC": 17,
+          "itemValue": 10
+        },
+        {
+          "itemName": "Starknife",
+          "materialCost": 3,
+          "tools": ["smith"],
+          "manufacturingTimeInHours": 6,
+          "manufacturingDC": 17,
+          "itemValue": 10
+        },
+        {
+          "itemName": "Tetherhook",
+          "materialCost": 5,
+          "tools": ["smith"],
+          "manufacturingTimeInHours": 8,
+          "manufacturingDC": 17,
+          "itemValue": 15
+        },
+        {
+          "itemName": "Trident",
+          "materialCost": 2,
+          "tools": ["carp", "smith"],
+          "manufacturingTimeInHours": 3,
+          "manufacturingDC": 17,
+          "itemValue": 5
+        },
+        {
+          "itemName": "Twinblade",
+          "materialCost": 17,
+          "tools": ["smith"],
+          "manufacturingTimeInHours": 24,
+          "manufacturingDC": 17,
+          "itemValue": 50
+        },
+        {
+          "itemName": "War pick",
+          "materialCost": 2,
+          "tools": ["smith"],
+          "manufacturingTimeInHours": 3,
+          "manufacturingDC": 17,
+          "itemValue": 5
+        },
+        {
+          "itemName": "Warhammer",
+          "materialCost": 5,
+          "tools": ["mason", "smith"],
+          "manufacturingTimeInHours": 8,
+          "manufacturingDC": 17,
+          "itemValue": 15
+        },
+        {
+          "itemName": "Whip",
+          "materialCost": 0.7,
+          "tools": ["leather"],
+          "manufacturingTimeInHours": 1,
+          "manufacturingDC": 17,
+          "itemValue": 2
+        }
+      ]
+    },
+    {
+      "categoryName": "Martial Ranged Weapon",
+      "items": [
+        {
+          "itemName": "Blowgun",
+          "materialCost": 3,
+          "tools": ["carp", "wood"],
+          "manufacturingTimeInHours": 6,
+          "manufacturingDC": 17,
+          "itemValue": 10
+        },
+        {
+          "itemName": "Crossbow, hand",
+          "tools": ["tinker"],
+          "materialCost": 25,
+          "manufacturingTimeInHours": 40,
+          "manufacturingDC": 17,
+          "itemValue": 75
+        },
+        {
+          "itemName": "Crossbow, heavy",
+          "tools": ["tinker"],
+          "materialCost": 17,
+          "manufacturingTimeInHours": 24,
+          "manufacturingDC": 17,
+          "itemValue": 50
+        },
+        {
+          "itemName": "Longbow",
+          "tools": ["carp", "wood"],
+          "materialCost": 17,
+          "manufacturingTimeInHours": 18,
+          "manufacturingDC": 17,
+          "itemValue": 50
+        },
+        {
+          "itemName": "Net",
+          "tools": ["weaver"],
+          "materialCost": 0.3,
+          "manufacturingTimeInHours": 1,
+          "manufacturingDC": 17,
+          "itemValue": 1
         }
       ]
     },
@@ -171,41 +517,166 @@
       "categoryName": "Magitech Firearm",
       "items": [
         {
-          "tools": ["tinker"],
           "itemName": "Blunderbuss",
-          "manufacturingDC": 19,
-          "manufacturingTimeInHours": 36,
+          "tools": ["tinker"],
           "materialCost": 50,
+          "manufacturingTimeInHours": 36,
+          "manufacturingDC": 19,
           "itemValue": 150
         },
         {
-          "tools": ["tinker"],
           "itemName": "Musket",
-          "manufacturingDC": 19,
-          "manufacturingTimeInHours": 36,
+          "tools": ["tinker"],
           "materialCost": 30,
+          "manufacturingTimeInHours": 36,
+          "manufacturingDC": 19,
           "itemValue": 100
         },
         {
-          "tools": ["tinker"],
           "itemName": "Pistol",
-          "manufacturingDC": 19,
-          "manufacturingTimeInHours": 48,
+          "tools": ["tinker"],
           "materialCost": 70,
+          "manufacturingTimeInHours": 48,
+          "manufacturingDC": 19,
           "itemValue": 200
+        },
+        {
+          "itemName": "Revolver",
+          "tools": ["tinker"],
+          "materialCost": 250,
+          "manufacturingTimeInHours": 96,
+          "manufacturingDC": 19,
+          "itemValue": 750
+        },
+        {
+          "itemName": "Rifle",
+          "tools": ["tinker"],
+          "materialCost": 330,
+          "manufacturingTimeInHours": 120,
+          "manufacturingDC": 19,
+          "itemValue": 1000
         }
       ]
     },
     {
-      "categoryName": "Other Item",
+      "categoryName": "Ammunition",
       "items": [
         {
-          "tools": ["carp", "wood"],
           "itemName": "Arrows (x20)",
-          "manufacturingDC": 13,
-          "manufacturingTimeInHours": 1,
+          "tools": ["carp", "wood"],
           "materialCost": 0.3,
+          "manufacturingTimeInHours": 1,
+          "manufacturingDC": 13,
           "itemValue": 1
+        },
+        {
+          "itemName": "Bolts (x20)",
+          "tools": ["carp", "wood"],
+          "materialCost": 0.3,
+          "manufacturingTimeInHours": 1,
+          "manufacturingDC": 13,
+          "itemValue": 1
+        },
+        {
+          "itemName": "Firearm shot (x20)",
+          "tools": ["smith"],
+          "materialCost": 1,
+          "manufacturingTimeInHours": 1,
+          "manufacturingDC": 13,
+          "itemValue": 3
+        },
+        {
+          "itemName": "Needles (x50)",
+          "tools": ["carp", "wood"],
+          "materialCost": 0.3,
+          "manufacturingTimeInHours": 1,
+          "manufacturingDC": 13,
+          "itemValue": 1
+        },
+        {
+          "itemName": "Sling bullets (x20)",
+          "tools": ["mason", "smith"],
+          "materialCost": 0.01,
+          "manufacturingTimeInHours": 1,
+          "manufacturingDC": 13,
+          "itemValue": 0.04
+        }
+      ]
+    },
+    {
+      "categoryName": "Other Items",
+      "items": [
+        {
+          "itemName": "Adventuring gear (price varies)",
+          "tools": ["varies"],
+          "materialCost": 0,
+          "manufacturingTimeInHours": 2,
+          "manufacturingDC": 11,
+          "itemValue": 0
+        },
+        {
+          "itemName": "Instrument",
+          "tools": ["carp", "tinker", "wood"],
+          "materialCost": 20,
+          "manufacturingTimeInHours": 16,
+          "manufacturingDC": 15,
+          "itemValue": 60
+        },
+        {
+          "itemName": "Potion base",
+          "tools": ["alch", "brew", "herb"],
+          "materialCost": 2,
+          "manufacturingTimeInHours": 2,
+          "manufacturingDC": 15,
+          "itemValue": 5
+        },
+        {
+          "itemName": "Ring (price varies)",
+          "tools": ["jewel"],
+          "materialCost": 0,
+          "manufacturingTimeInHours": 2,
+          "manufacturingDC": 15,
+          "itemValue": 0
+        },
+        {
+          "itemName": "Spell scroll base",
+          "tools": ["call", "cart", "paint"],
+          "materialCost": 3,
+          "manufacturingTimeInHours": 2,
+          "manufacturingDC": 15,
+          "itemValue": 10
+        },
+        {
+          "itemName": "Rod",
+          "tools": ["varies"],
+          "materialCost": 0,
+          "manufacturingTimeInHours": 8,
+          "manufacturingDC": 17,
+          "itemValue": 0
+        },
+        {
+          "itemName": "Staff",
+          "tools": ["varies"],
+          "materialCost": 0,
+          "manufacturingTimeInHours": 8,
+          "manufacturingDC": 17,
+          "itemValue": 0
+        },
+        {
+          "itemName": "Wand",
+          "tools": ["varies"],
+          "materialCost": 0,
+          "manufacturingTimeInHours": 8,
+          "manufacturingDC": 17,
+          "itemValue": 0
+        },
+        {
+          "itemName": "Wondrous item",
+          "tools": ["varies"],
+          "materialCost": 0,
+          "manufacturingTimeInHours": 8,
+          "manufacturingDC": 15,
+          "itemValue": 0
         }
       ]
     }

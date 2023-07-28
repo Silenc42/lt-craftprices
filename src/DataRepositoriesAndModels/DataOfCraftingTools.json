@@ -113,6 +113,12 @@
       "toolName": "Woodcarver’s tools",
       "abilities": ["Dexterity", "Strength"],
       "itemTypes": "Ammunition (arrows, bolts, and blowgun needles), rods, staves, wands, weapons (polearms, blowguns, clubs, darts, greatclubs, javelins, longbows, nunchucks, quarterstaves, shortbows, tridents); miscellaneous (anything made of wood)"
+    },
+    {
+      "id": "varies",
+      "toolName": "Varies",
+      "abilities": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
+      "itemTypes": "Adventuring gear, Rod, Staff, Wand, Wondrous item"
     }
   ]
 }

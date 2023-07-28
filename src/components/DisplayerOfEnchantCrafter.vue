@@ -46,7 +46,7 @@
 </template>
 
 <script setup lang="ts">
-import { getcrafterNameDisplay } from "@/Calculators/CalculatorOfCraftersName";
+import { getCrafterNameDisplay } from "@/Calculators/CalculatorOfCraftersName";
 import {
   enchantCrafterDisplayModel,
   getEnchantCrafterDisplay,
@@ -59,7 +59,6 @@ import {
   crafterRankEnum,
   crafterRankValidator,
   crafterTypeEnum,
-  crafterTypeValidator,
 } from "@/DataRepositoriesAndModels/crafterChoices";
 import { ComputedRef, computed } from "vue";
 
@@ -80,7 +79,7 @@ const displayModel: ComputedRef<enchantCrafterDisplayModel> = computed(() =>
 );
 
 const crafterName: ComputedRef<string> = computed(() =>
-  getcrafterNameDisplay(
+  getCrafterNameDisplay(
     props.chosenCrafterRank as crafterRankEnum,
     crafterTypeEnum.enchanter
   )

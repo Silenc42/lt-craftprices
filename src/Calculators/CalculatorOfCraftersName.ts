@@ -3,7 +3,7 @@ import {
   crafterTypeEnum,
 } from "@/DataRepositoriesAndModels/crafterChoices";
 
-export function getcrafterNameDisplay(
+export function getCrafterNameDisplay(
   rank: crafterRankEnum,
   type: crafterTypeEnum
 ): string {

@@ -46,7 +46,7 @@
 </template>
 
 <script setup lang="ts">
-import { getcrafterNameDisplay } from "@/Calculators/CalculatorOfCraftersName";
+import { getCrafterNameDisplay } from "@/Calculators/CalculatorOfCraftersName";
 import {
   getManufactureCrafterDisplay,
   manufactureCrafterDisplayModel,
@@ -71,7 +71,7 @@ const displayModel: ComputedRef<manufactureCrafterDisplayModel> = computed(() =>
 );
 
 const crafterName: ComputedRef<string> = computed(() =>
-  getcrafterNameDisplay(
+  getCrafterNameDisplay(
     props.chosenCrafterRank as crafterRankEnum,
     crafterTypeEnum.manufacturer
   )

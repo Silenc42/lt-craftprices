@@ -29,7 +29,7 @@ export interface forgeSelfDisplayModel {
   enchantingDC: string;
   enchantingCheckChoices: string[];
 }
-Next up: display and test
+
 export function getForgeSelfDisplay(
   baseItemName: string | undefined,
   chosenMonsterType: string | undefined,

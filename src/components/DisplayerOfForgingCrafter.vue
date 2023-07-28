@@ -76,7 +76,7 @@ const displayModel: ComputedRef<forgeCrafterDisplayModel> = computed(() =>
 const crafterName: ComputedRef<string> = computed(() =>
   getCrafterNameDisplay(
     props.chosenCrafterRank as crafterRankEnum,
-    crafterTypeEnum.enchanter
+    crafterTypeEnum.forger
   )
 );
 </script>

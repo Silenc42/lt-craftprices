@@ -85,7 +85,7 @@ function calcCraftingCosts(
   totalCost: number | undefined;
 } {
   const baseCraftingTime: number | undefined = essenceData
-    ? calcBaseCraftingTime(attunement, essenceData)
+    ? calcBaseEnchantingTime(attunement, essenceData)
     : undefined;
   const actualCraftingTime: number | undefined = baseCraftingTime
     ? baseCraftingTime / crafter.speedFactor
@@ -100,7 +100,7 @@ function calcCraftingCosts(
   return { actualCraftingTime, crafterCost, totalCost };
 }
 
-function calcBaseCraftingTime(
+function calcBaseEnchantingTime(
   attunement: attunementEnum,
   essenceData: essence
 ): number {

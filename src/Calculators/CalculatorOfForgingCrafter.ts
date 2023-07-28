@@ -11,15 +11,19 @@ import {
 import { attunementEnum } from "@/DataRepositoriesAndModels/attunementEnum";
 import {
   toDCText,
-  toDisplayList,
+  toGpPerHourText,
   toGpText,
   toHourText,
+  toModifierText,
 } from "./DisplayHelpers";
 import {
-  craftingToolStats,
-  getCraftingTool,
-} from "@/DataRepositoriesAndModels/RepoOfCraftingTools";
-import { crafterRankEnum } from "@/DataRepositoriesAndModels/crafterChoices";
+  crafterRankEnum,
+  crafterTypeEnum,
+} from "@/DataRepositoriesAndModels/crafterChoices";
+import {
+  crafterStats,
+  getCrafterStats,
+} from "@/DataRepositoriesAndModels/RepoOfCrafterStats";
 
 export interface forgeCrafterDisplayModel {
   itemDisplayName: string;
@@ -43,9 +47,10 @@ export function getForgeCrafterDisplay(
   const baseItemData: baseItem | undefined = baseItemName
     ? baseItemByName(baseItemName)
     : undefined;
-  const toolChoices: craftingToolStats[] | undefined = baseItemData
-    ? baseItemData.tools.map((t) => getCraftingTool(t))
-    : undefined;
+  const crafter: crafterStats = getCrafterStats(
+    crafterRank,
+    crafterTypeEnum.forger
+  );
   const essenceData: essence | undefined = chosenRarity
     ? getEssenceDataByRarity(chosenRarity)
     : undefined;
@@ -53,77 +58,72 @@ export function getForgeCrafterDisplay(
     ? getMonsterTypesDataByTypeName(chosenMonsterType)
     : undefined;
 
+  const {
+    actualCraftingTime,
+    crafterCost,
+    totalCost,
+  }: {
+    actualCraftingTime: number | undefined;
+    crafterCost: number | undefined;
+    totalCost: number | undefined;
+  } = calcCraftingCosts(essenceData, attunement, crafter, baseItemData);
+
   return {
     itemDisplayName: calcItemDisplayName(
       attunement,
       chosenRarity,
       baseItemData
     ),
-    baseItemMaterialCost: toGpText(baseItemData?.itemValue),
-    forgingTimeInHours: toHourText(
-      calcCraftingTime(baseItemData, attunement, essenceData)
-    ),
+
+    totalCost: toGpText(totalCost),
     manufacturingDC: toDCText(baseItemData?.manufacturingDC),
-    manufactureCheckChoices: toDisplayList(
-      calcManufactureCheckChoices(toolChoices)
-    ),
     enchantingDC: toDCText(essenceData?.enchantingDC),
-    enchantingCheckChoices: toDisplayList(
-      calcEnchantingCheckChoices(toolChoices, monsterTypeData)
-    ),
+    modifier: toModifierText(crafter.modifier),
+    baseItemMaterialCost: toGpText(baseItemData?.materialCost),
+    forgingTimeInHours: toHourText(actualCraftingTime),
+    hourlyRate: toGpPerHourText(crafter.hourlyRate),
+    crafterCost: toGpText(crafterCost),
   };
 }
 
-function calcManufactureCheckChoices(
-  toolChoices: craftingToolStats[] | undefined
-): string[] | undefined {
-  return toolChoices?.flatMap((t) =>
-    t.abilities.map((a) => a + "(" + t.toolName + ")")
-  );
-}
-
-function calcEnchantingCheckChoices(
-  toolChoices: craftingToolStats[] | undefined,
-  monsterTypeData: monsterType | undefined
-): string[] | undefined {
-  if (!toolChoices || !monsterTypeData) {
-    return undefined;
-  }
-  const listWithDuplicates: string[] = toolChoices
-    ?.flatMap((t) => t.abilities)
-    .map((a) => a + "(" + monsterTypeData.skill + ")");
-  const deduplicatedList: string[] = Array.from(new Set(listWithDuplicates));
-  return deduplicatedList;
-}
-
-function calcCraftingTime(
-  baseItemData: baseItem | undefined,
+function calcCraftingCosts(
+  essenceData: essence | undefined,
   attunement: attunementEnum,
-  essenceData: essence | undefined
-): number | undefined {
-  const manufactureTime: number | undefined =
+  crafter: crafterStats,
+  baseItemData: baseItem | undefined
+): {
+  actualCraftingTime: number | undefined;
+  crafterCost: number | undefined;
+  totalCost: number | undefined;
+} {
+  const baseEnchantingTime: number | undefined = essenceData
+    ? calcBaseEnchantingTime(attunement, essenceData)
+    : undefined;
+  const baseManufactureTime: number | undefined =
     baseItemData?.manufacturingTimeInHours;
-  if (!manufactureTime) {
-    return undefined;
-  }
-  const enchantTime: number | undefined = calcEnchantingTime(
-    attunement,
-    essenceData
-  );
-  if (!enchantTime) {
-    return undefined;
-  }
+  const baseCraftingTime =
+    baseManufactureTime && baseEnchantingTime
+      ? Math.max(baseManufactureTime, baseEnchantingTime)
+      : undefined;
 
-  return Math.max(manufactureTime, enchantTime);
+  const actualCraftingTime: number | undefined = baseCraftingTime
+    ? baseCraftingTime / crafter.speedFactor
+    : undefined;
+  const crafterCost: number | undefined = actualCraftingTime
+    ? crafter.hourlyRate * actualCraftingTime
+    : undefined;
+  const totalCost: number | undefined =
+    crafterCost && baseItemData
+      ? crafterCost + baseItemData.materialCost
+      : undefined;
+
+  return { actualCraftingTime, crafterCost, totalCost };
 }
 
-function calcEnchantingTime(
+function calcBaseEnchantingTime(
   attunement: attunementEnum,
-  essenceData: essence | undefined
-): number | undefined {
-  if (!essenceData) {
-    return undefined;
-  }
+  essenceData: essence
+): number {
   switch (attunement) {
     case attunementEnum.consumable:
       return essenceData.enchantingTimeConsumable;

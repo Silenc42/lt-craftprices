@@ -55,7 +55,7 @@ export function getForgeSelfDisplay(
       chosenRarity,
       baseItemData
     ),
-    baseItemMaterialCost: toGpText(baseItemData?.itemValue),
+    baseItemMaterialCost: toGpText(baseItemData?.materialCost),
     forgingTimeInHours: toHourText(
       calcCraftingTime(baseItemData, attunement, essenceData)
     ),

@@ -77,6 +77,11 @@
             craftingType === crafterTypeEnum.forger &&
             selectedCrafter !== crafterRankEnum.diy
           "
+          v-model:chosenBaseItemName="selectedBaseItemName"
+          v-model:chosenMonsterType="monsterType"
+          v-model:chosenRarity="itemRarity"
+          v-model:chosenAttunement="selectedAttunement"
+          v-model:chosenCrafterRank="selectedCrafter"
         />
       </v-col>
     </v-row>
